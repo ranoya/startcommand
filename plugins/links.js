@@ -1,4 +1,4 @@
-let clipboard = function (gurl) {
+let mclipboard = function (gurl) {
      navigator.clipboard.writeText(gurl);
 }
 
@@ -32,7 +32,7 @@ let links = function (par) {
           for (let l = 0; l < arr.length; l++) {
               if (arr[l][groupkey] == selectedarr[c]) {
                 
-                code += `<a href='javascript:clipboard("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
+                code += `<a href='javascript:mclipboard("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
             }
           }
         }
@@ -45,7 +45,7 @@ let links = function (par) {
         code += `</span>`;
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][linkkey] != ultimoregistro) {
-            code += `<a href='javascript:clipboard("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
+            code += `<a href='javascript:mclipboard("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
             ultimoregistro = arr[l][linkkey];
           }
         }
