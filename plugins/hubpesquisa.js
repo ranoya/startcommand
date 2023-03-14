@@ -1,16 +1,4 @@
-let hubpesquisa = function (npar) {
-
-    let par = [];
-    let kc = 0;
-    for (let k = 0; k < npar.length; k++) {
-        if (typeof npar.Atividade != "undefined" && npar.Atividade != "" && npar.Pessoa != "Ranoya") {
-            par[kc] = {};
-            par[kc] = npar[k];
-            kc++;
-        }
-    }
-
-
+let hubpesquisa = function (par) {
 
   clearInterval(voltaaoinput);
   // Change the funcion name here (imperative)
@@ -545,9 +533,17 @@ let hubpesquisa = function (npar) {
 
     fetch(jsonfile)
         .then((response) => response.json())
-        .then((jsondata) => {
+        .then((jsondataor) => {
 
-
+            let jsondata = [];
+            let kc = 0;
+            for (let k = 0; k < jsondataor.length; k++) {
+                if (typeof jsondataor[k].Atividade != "undefined" && jsondataor[k].Atividade != "" && jsondataor[k].Pessoa != "Ranoya") {
+                    jsondata[kc] = {};
+                    jsondata[kc] = jsondataor[k];
+                    kc++;
+                }
+            }
       
             if (typeof sessionStorage.getItem('tipo') == 'undefined' || sessionStorage.getItem('tipo') == "" || sessionStorage.getItem('tipo') == null) {
                 sessionStorage.setItem('tipo', "atividade");
