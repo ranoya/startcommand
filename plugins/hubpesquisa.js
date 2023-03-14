@@ -1,4 +1,16 @@
-let hubpesquisa = function (par) {
+let hubpesquisa = function (npar) {
+
+    let par = [];
+    let kc = 0;
+    for (let k = 0; k < npar.length; k++) {
+        if (typeof npar.Atividade != "undefined" && npar.Atividade != "" && npar.Pessoa != "Ranoya") {
+            par[kc] = {};
+            par[kc] = npar[k];
+            kc++;
+        }
+    }
+
+
 
   clearInterval(voltaaoinput);
   // Change the funcion name here (imperative)
@@ -614,7 +626,7 @@ let hubpesquisa = function (par) {
         <div class='listabotoes'>
         <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757'>Gerenciar [ <b>${arr.length}</b> ]</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>To-do</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","timeline"); addinput("")'>Timeline</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","cronograma"); addinput("")'>Cronograma</a></div>
         <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("task ")'>Tasks</a></div>
-        <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/todo ")'>/</a></div>
+        <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/hubpesquisa ")'>/</a></div>
         </div>
 
         <div class="listatodo">
@@ -707,7 +719,7 @@ let hubpesquisa = function (par) {
             <div class='listabotoes'>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757'>Gerenciar [ <b>${arr.length}</b> ]</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>To-do</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","timeline"); addinput("")'>Timeline</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","cronograma"); addinput("")'>Cronograma</a></div>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>Atividade</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","pessoa"); addinput("")'>Pessoa</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","status"); addinput("")'>Status</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("task ")'>Tasks</a></div>
-            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/todo ")'>/</a></div>
+            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/hubpesquisa ")'>/</a></div>
             </div>
 
             <div class='tabelaacoes'>
@@ -833,7 +845,7 @@ let hubpesquisa = function (par) {
             <div class='listabotoes'>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757'>Gerenciar [ <b>${arr.length}</b> ]</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>To-do</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","timeline"); addinput("")'>Timeline</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","cronograma"); addinput("")'>Cronograma</a></div>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>Atividade</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","ação"); addinput("")'>Ação</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","status"); addinput("")'>Status</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("task ")'>Tasks</a></div>
-            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/todo ")'>/</a></div>
+            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/hubpesquisa ")'>/</a></div>
             </div>
 
             <div class='tabelaacoes'>
@@ -957,7 +969,7 @@ let hubpesquisa = function (par) {
             <div class='listabotoes'>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757'>Gerenciar [ <b>${arr.length}</b> ]</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>To-do</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","timeline"); addinput("")'>Timeline</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","cronograma"); addinput("")'>Cronograma</a></div>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>Atividade</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","ação"); addinput("")'>Ação</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","pessoa"); addinput("")'>Pessoa</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("task ")'>Tasks</a></div>
-            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/todo ")'>/</a></div>
+            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/hubpesquisa ")'>/</a></div>
             </div>
 
             <div class='tabelaacoes'>
@@ -1250,7 +1262,7 @@ let hubpesquisa = function (par) {
             <div class='listabotoes'>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757'>Gerenciar [ <b>${arr.length}</b> ]</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>To-do</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","timeline"); addinput("")'>Timeline</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","cronograma"); addinput("")'>Cronograma</a></div>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("na fila ")'>Não Iniciados</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("fazendo ")'>Em Andamento</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("contínuo ")'>Recorrentes</a></div>
-            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/todo ")'>/</a></div>
+            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/hubpesquisa ")'>/</a></div>
             </div>
             
             <div class='blocotime'>`;
@@ -1392,7 +1404,7 @@ let hubpesquisa = function (par) {
             <div class='listabotoes'>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757'>Gerenciar [ <b>${arr.length}</b> ]</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","atividade"); addinput("")'>To-do</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","timeline"); addinput("")'>Timeline</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:sessionStorage.setItem("tipo","cronograma"); addinput("")'>Cronograma</a></div>
             <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("na fila ")'>Não Iniciados</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("fazendo ")'>Em Andamento</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("feito ")'>concluídos</a></div>
-            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/todo ")'>/</a></div>
+            <div><a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:addinput("urgente ")'>Urgente</a> &nbsp; <a class='grouplink' style='text-transform: uppercase; display: inline;' href='javascript:setinput("/hubpesquisa ")'>/</a></div>
             </div>
             
   `;
