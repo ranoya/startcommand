@@ -1,4 +1,4 @@
-let hubpesquisa = function (par) {
+let hubtodo = function (par) {
 
   clearInterval(voltaaoinput);
   // Change the funcion name here (imperative)
