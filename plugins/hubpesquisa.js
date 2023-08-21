@@ -538,7 +538,7 @@ let hubtodo = function (par) {
             let jsondata = [];
             let kc = 0;
             for (let k = 0; k < jsondataor.length; k++) {
-                if (typeof jsondataor[k].Atividade != "undefined" && jsondataor[k].Atividade != "" && jsondataor[k].Pessoa != "Ranoya") {
+                if (typeof jsondataor[k].Atividade != "undefined" && jsondataor[k].Atividade != "") {
                     jsondata[kc] = {};
                     jsondata[kc] = jsondataor[k];
                     kc++;
