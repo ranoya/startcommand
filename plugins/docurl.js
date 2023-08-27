@@ -14,7 +14,7 @@ let docurl = function (par) {
                             border: 1px solid var(--line-separator, #efe8d6);
                         }
 
-                        .tabelaparm div {
+                        .tabelaparam div {
                             border: 1px solid var(--line-separator, #efe8d6);
                         }
         
@@ -23,7 +23,7 @@ let docurl = function (par) {
 
         for (let i = 0; i < newarr.length; i++) {
             xpto += `<a target='_blank' href='${newarr[i].link}'>${newarr[i].documento}</a><br>`;
-            xpto += `<a target='_self' href='${newarr[i].dba}'>${newarr[i].informacao}</a><br>`;
+            xpto += `<a target='_self' href='${newarr[i].dba}'>${newarr[i].informacao}</a><br><br>`;
             xpto += `<div class='tabelaparam'>${newarr[i].parametros}</div><br><br>`;
         }
 
