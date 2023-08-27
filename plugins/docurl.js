@@ -22,14 +22,13 @@ let docurl = function (par) {
         
                     </style>`;
         xpto += `<div style='width: calc(100vw - 50px); margin-left: 20px; margin-right: 20px; padding-bottom: 20px;'>
-        
-                 <div style='width: calc(100vw - 50px); border: 0; height: 1px; border: 1px solid var(--line-separator, #efe8d6);'></div>
         `;
 
         for (let i = 0; i < newarr.length; i++) {
             xpto += `
-            <a target='_blank' href='${newarr[i].link}'>${newarr[i].documento}</a><br>;
-            <a target='_self' href='${newarr[i].dba}'>${newarr[i].informacao}</a><br><br>;
+            <a target='_blank' href='${newarr[i].link}'>${newarr[i].documento}</a><br>
+            <a target='_self' href='${newarr[i].dba}'>${newarr[i].informacao}</a><br><br>
+            <div style='width: calc(100vw - 50px); border: 0; height: 1px; border: 1px solid var(--line-separator, #efe8d6);'></div>
             <div class='tabelaparam'>${newarr[i].parametros}</div>
             <div class='linhadi'></div>
             <br><br>`;
