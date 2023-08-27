@@ -10,14 +10,15 @@ let docurl = function (par) {
                         .tabelaparam {
                             display: grid;
                             grid-template-columns: [init] 120px 240px 1fr [fim];
-                            gap: 3px 10px;
+                            gap: 0 0;
                         }
 
-                        .linhadi {
-                            border: 0;
-                            height: 1px;
-                            width: 100%;
-                            border-bottom: 1px solid var(--line-separator, #efe8d6);
+                        .tabelaparam div {
+                            border: 1px solid var(--line-separator, #efe8d6);
+                            padding-left: 8px;
+                            padding-right: 8px;
+                            padding-top: 4px;
+                            padding-bottom: 4px;
                         }
         
                     </style>`;
@@ -28,9 +29,9 @@ let docurl = function (par) {
             xpto += `
             <a target='_blank' href='${newarr[i].link}'>${newarr[i].documento}</a><br>
             <a target='_self' href='${newarr[i].dba}'>${newarr[i].informacao}</a><br><br>
-            <div style='width: calc(100vw - 50px); border: 0; height: 1px; border: 1px solid var(--line-separator, #efe8d6);'></div>
+            
             <div class='tabelaparam'>${newarr[i].parametros}</div>
-            <div class='linhadi'></div>
+
             <br><br>`;
         }
 
