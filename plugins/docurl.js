@@ -19,7 +19,7 @@ let docurl = function (par) {
                         }
         
                     </style>`;
-        xpto = `<div style='width: calc(100vw - 50px); margin-left: 20px; margin-right: 20px; padding-bottom: 20px;>`;
+        xpto += `<div style='width: calc(100vw - 50px); margin-left: 20px; margin-right: 20px; padding-bottom: 20px;>`;
 
         for (let i = 0; i < newarr.length; i++) {
             xpto += `<a target='_blank' href='${newarr[i].link}'>${newarr[i].documento}</a><br>`;
