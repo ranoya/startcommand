@@ -21,7 +21,7 @@ let docurl = function (par) {
                         }
         
                     </style>`;
-        xpto += `<div style='width: calc(100vw - 50px); margin-left: 20px; margin-right: 20px; padding-bottom: 20px;>
+        xpto += `<div style='width: calc(100vw - 50px); margin-left: 20px; margin-right: 20px; padding-bottom: 20px;'>
         
                  <div style='width: calc(100vw - 50px); border: 0; height: 1px; border: 1px solid var(--line-separator, #efe8d6);'></div>
         `;
