@@ -10,7 +10,7 @@ let help = function (par) {
 
         for (let i = 0; i < newarr.length; i++) {
             if (typeof newarr[i].descricao != "undefined" && newarr[i].descricao != "" && newarr[i].descricao != null) {
-                xpto += `<a  href='javascript:setinput("/${newarr[i].instruction}")'>/${newarr[i].instruction}</a><div>${newarr[i].descricao}</div>`;
+                xpto += `<a  href='javascript:setinput("/${newarr[i].instruction} ")'>/${newarr[i].instruction}</a><div>${newarr[i].descricao}</div>`;
             }
       }
 
