@@ -12,6 +12,14 @@ label {
   display: none;
 }
 
+::selection {
+  background: var(--inpt-selec, #f7c6bd);
+}
+
+input::selection {
+  background: var(--inpt-selec, #f7c6bd);
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   margin-right: 5px;
