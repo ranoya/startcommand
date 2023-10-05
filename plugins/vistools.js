@@ -1,6 +1,8 @@
 let vistools = function (par) {
 
-  clearInterval(voltaaoinput);
+  if (typeof voltaaoinput != "undefined" && voltaaoinput != null) {
+        clearInterval(voltaaoinput);
+  }
   // Change the funcion name here (imperative)
 
   let jsonfile = `https://opensheet.elk.sh/1d9eKw82lnM5GvVkBUe8wLcHSxpmDm5B6dUqWRbazOik/FERRAMENTAS_POE_VISSE`; // Change the URL here (imperative)
