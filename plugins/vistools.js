@@ -5,7 +5,7 @@ let vistools = function (par) {
 
   let jsonfile = `https://opensheet.elk.sh/1d9eKw82lnM5GvVkBUe8wLcHSxpmDm5B6dUqWRbazOik/FERRAMENTAS_POE_VISSE`; // Change the URL here (imperative)
 
-  let namekey = `nome`; // Change the Key for the Title of the links, if needed
+  let namekey = `Name`; // Change the Key for the Title of the links, if needed
   let groupkey = `Group`; // Change the Key for the Groups of the links, if needed
   let linkkey = `Link`; // Change the Key for the link url of the links, if needed
   let typekey = `Type`; // Change the Key for the link type of the links, if needed
