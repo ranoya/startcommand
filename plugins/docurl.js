@@ -9,7 +9,7 @@ let docurl = function (par) {
         let xpto = `<style>
                         .tabelaparam {
                             display: grid;
-                            grid-template-columns: [init] 120px 240px 1fr [fim];
+                            grid-template-columns: [init] 170px 240px 1fr [fim];
                             gap: 0 0;
                         }
 
