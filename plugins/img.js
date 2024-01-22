@@ -15,14 +15,14 @@ let clipboard = function (gurl) {
 
   if (gurl.match(/https:\/\/drive\.google\.com\/file\/d\/(.*)\/view/i)) {
     hash = gurl.match(/https:\/\/drive\.google\.com\/file\/d\/(.*)\/view/i);
-    urlfinal = "https://drive.google.com/uc?export=view&id=" + hash[1];
+    urlfinal = "https://lh3.googleusercontent.com/d/" + hash[1];
 
     navigator.clipboard.writeText(urlfinal);
 
     return `Original: ${gurl}<br>Final: <a href="${urlfinal}" target="_blank">${urlfinal}</a>`;
   } else if (gurl.match(/https:\/\/drive\.google\.com(.*)id=(.*)/gi)) {
     hash = gurl.match(/https:\/\/drive\.google\.com(.*)id=(.*)/i);
-    urlfinal = "https://drive.google.com/uc?export=view&id=" + hash[2];
+    urlfinal = "https://lh3.googleusercontent.com/d/" + hash[2];
 
     navigator.clipboard.writeText(urlfinal);
     return `Original: ${gurl}<br>Final: <a href="${urlfinal}" target="_blank">${urlfinal}</a>`;
