@@ -1,0 +1,60 @@
+<DOCTYPE html>
+  <html>
+    <head>
+      <style>
+        html,
+        body {
+          margin: 10px;
+          background-color: transparent;
+          color: grey;
+          font-family: Helvetica, Arial, Helvetica, sans-serif;
+        }
+
+        hr {
+          margin-top: 20px;
+          margin-bottom: 20px;
+        }
+
+        a {
+          color: grey;
+          text-decoration: none;
+        }
+
+        a:hover {
+          color: orange;
+        }
+      </style>
+    </head>
+
+    <body>
+      <div id="observablehq-viewof-CodigoViaAce-02359c30"></div>
+      <hr />
+
+      <div id="observablehq-resultado-02359c30"></div>
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css"
+      />
+      <script type="module">
+        import {
+          Runtime,
+          Inspector,
+        } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+        import define from "https://api.observablehq.com/@ranoya/verificador-imagefromallsources@76.js?v=4";
+        new Runtime().module(define, (name) => {
+          if (name === "viewof CodigoViaAce")
+            return new Inspector(
+              document.querySelector(
+                "#observablehq-viewof-CodigoViaAce-02359c30"
+              )
+            );
+          if (name === "resultado")
+            return new Inspector(
+              document.querySelector("#observablehq-resultado-02359c30")
+            );
+        });
+      </script>
+    </body>
+  </html>
+</DOCTYPE>
