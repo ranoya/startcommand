@@ -9,10 +9,13 @@ let img = function (par) {
 
 }
 
-let clipboard = function (gurl) {
+let clipboard = function (aurl) {
   let urlfinal = "";
   let hash = "";
 
+  let burl = aurl.replace("&usp=drive_fs", "");
+  let gurl = burl.replace("&authuser=guilherme.ranoya%40ufpe.br", "");
+  
   if (gurl.match(/https:\/\/drive\.google\.com\/file\/d\/(.*)\/view/i)) {
     hash = gurl.match(/https:\/\/drive\.google\.com\/file\/d\/(.*)\/view/i);
     urlfinal = "https://lh3.googleusercontent.com/d/" + hash[1];
