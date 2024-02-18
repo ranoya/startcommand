@@ -112,17 +112,26 @@
       }
     });
 
-    // Set focus to the input
-    let voltaaoinput = setInterval(function () {
-      document.getElementsByTagName("input")[0].focus();
-    }, 10000);
+    let voltaaoinput = "";
 
-    document.getElementsByTagName("input")[0].onfocus = function () {
-      clearInterval(voltaaoinput);
+    // Set focus to the input
+    if (
+      typeof $_GET["nofocus"] == "undefined" ||
+      $_GET["nofocus"] == null ||
+      $_GET["nofocus"] == ""
+    ) {
+      // Set focus to the input
       voltaaoinput = setInterval(function () {
         document.getElementsByTagName("input")[0].focus();
       }, 10000);
-    };
+
+      document.getElementsByTagName("input")[0].onfocus = function () {
+        clearInterval(voltaaoinput);
+        voltaaoinput = setInterval(function () {
+          document.getElementsByTagName("input")[0].focus();
+        }, 10000);
+      };
+    }
 
     // Clock
     let addzero = function (str) {
