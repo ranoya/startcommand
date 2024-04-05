@@ -61,6 +61,32 @@ let $_GET = [];
 })();
 
 
+// CSV Parser
+
+const dtParseCsv = function (str) {
+
+  const lines = str.split('\n');
+  const headers = lines[0].split(',');
+
+  const result = [];
+
+  for (let i = 1; i < lines.length; i++) {
+    const currentLine = lines[i].split(',');
+
+    if (currentLine.length === headers.length) {
+
+      const obj = {};
+      for (let j = 0; j < headers.length; j++) {
+        obj[headers[j]] = currentLine[j];
+      }
+
+      result.push(obj);
+    }
+  }
+
+  return result;
+}
+
 
 
 // Order By...
@@ -645,4 +671,16 @@ let startomnifilter = function (omnifdados, elemento, funcprocessa) {
 
     let newomniarray = select(omnifdados, multipatterncheck_exclude, "");
     funcprocessa(newomniarray);
+}
+
+
+let omnifilterfetchdatacsv = function (arquivocsv, el_id) {
+    // Fetch JSON file
+    fetch(arquivocsv).then(response => response.text()).then((omnifdados) => {
+      //Start Omnifilter Event Listener Function
+      let newdados = dtParseCsv(omnifdados);
+      console.table(newdados);
+      alldata = newdados
+      startomnifilter(newdados, el_id, omnifilter);
+    });
 }
