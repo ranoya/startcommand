@@ -211,32 +211,24 @@
       $_GET["plugins"] != "" &&
       $_GET["plugins"] != null
     ) {
-      fetch($_GET["plugins"])
-        .then((response) => response.json())
-        .then((dados) => {
-          // console.table(dados);
+      getcsvdata($_GET["plugins"], function (dados) {
+        let customplugins = "";
+        for (i = 0; i < dados.length; i++) {
+          customcmd[i] = dados[i].instruction;
 
-          let customplugins = "";
-          for (i = 0; i < dados.length; i++) {
-            customcmd[i] = dados[i].instruction;
+          let scrjs = document.createElement("script");
+          scrjs.src = dados[i].js;
+          document.head.appendChild(scrjs);
+        }
 
-            let scrjs = document.createElement("script");
-            scrjs.src = dados[i].js;
-            document.head.appendChild(scrjs);
-          }
-
-          document.getElementById("addons").innerHTML = customplugins;
-        });
+        document.getElementById("addons").innerHTML = customplugins;
+      });
     } else {
-      fetch(
+      getcsvdata(
         GoogleSheetCsvURL(
           "https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit#gid=10024088"
-        )
-      )
-        .then((response) => response.json())
-        .then((dados) => {
-          // console.table(dados);
-
+        ),
+        function (dados) {
           let customplugins = "";
           for (i = 0; i < dados.length; i++) {
             customcmd[i] = dados[i].instruction;
@@ -247,7 +239,8 @@
           }
 
           document.getElementById("addons").innerHTML = customplugins;
-        });
+        }
+      );
     }
 
     // Fetch and load Common Cloud Files
@@ -263,11 +256,9 @@
       $_GET["files"] != "" &&
       $_GET["files"] != null
     ) {
-      fetch($_GET["files"])
-        .then((response) => response.json())
-        .then((dados) => {
-          cloudfiles = dados;
-        });
+      getcsvdata($_GET["files"], function (dados) {
+        cloudfiles = dados;
+      });
     }
 
     // Fetch JSON
