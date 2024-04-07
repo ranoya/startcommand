@@ -202,8 +202,9 @@
 
     let customcmd = [];
 
-    $_GET["plugins"] =
-      "https://opensheet.elk.sh/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/MyPoePlugins";
+    $_GET["plugins"] = GoogleSheetCsvURL(
+      "https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit#gid=55677578"
+    );
 
     if (
       $_GET["plugins"] != undefined &&
@@ -228,7 +229,9 @@
         });
     } else {
       fetch(
-        "https://opensheet.elk.sh/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/MyPoe"
+        GoogleSheetCsvURL(
+          "https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit#gid=10024088"
+        )
       )
         .then((response) => response.json())
         .then((dados) => {
@@ -252,8 +255,9 @@
 
     let cloudfiles = [];
 
-    $_GET["files"] =
-      "https://opensheet.elk.sh/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/MyPoe";
+    $_GET["files"] = GoogleSheetCsvURL(
+      "https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit#gid=10024088"
+    );
     if (
       typeof $_GET["files"] != undefined &&
       $_GET["files"] != "" &&
@@ -274,10 +278,12 @@
       $_GET["json"] != "" &&
       $_GET["json"] != null
     ) {
-      omnifilterfetchdata($_GET["json"], "entrada");
+      omnifilterfetchcsvdata($_GET["json"], "entrada");
     } else {
-      omnifilterfetchdata(
-        "https://opensheet.elk.sh/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/MyPoe",
+      omnifilterfetchcsvdata(
+        GoogleSheetCsvURL(
+          "https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit#gid=10024088"
+        ),
         "entrada"
       );
     }
