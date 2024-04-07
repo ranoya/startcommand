@@ -165,6 +165,8 @@ const getcsvdata = function (csvurl, callback) {
 
   fetch(csvurl).then(response => response.text()).then((dados) => {
 
+    console.log(dados);
+
         let linhas = dados.split(/\r?\n|\r|\n/g);
         let linhadados = "";
         let valorfinal = "";
