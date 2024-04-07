@@ -280,30 +280,6 @@ const GoogleSheetCsvURL = function(url) {
 }
 
 
-
-
-/**
- * Get a CSV from Google Sheet
- * 
- * 
- * Return a CSV file from the provided Google Sheet URL
- * 
- * Ex:
- * 
- * let mycsvdata = GoogleSheetData('https://docs.google.com/spreadsheets/d/1ih4V4CumuIl5ZynobsazNzGiaPrE2V2Dpt13FI22XNU/edit#gid=0')
- * 
- */
-
-
-
-const GoogleSheetDataCSV = function(url) {
-  url = new URL(url);
-  const id = url.pathname.split("/")[3];
-  const gid = new URLSearchParams(url.hash.slice(1)).get("gid") || 0;
-  return `https://docs.google.com/spreadsheets/d/${id}/export?format=csv&gid=${gid}`
-}
-
-
 /**
  * Boolean Filter
  * Create a list array from an old one when their elements have any value on a specific criteria(key)
