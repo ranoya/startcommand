@@ -697,8 +697,6 @@ let omnifilterfetchcsvdata = function (csvurl, el_id) {
     // Fetch CSV file
   fetch(csvurl).then(response => response.text()).then((omnifdados) => {
 
-    console.log(omnifdados);
-
         let linhas = omnifdados.split(/\r?\n|\r|\n/g);
         let linhadados = "";
         let valorfinal = "";
