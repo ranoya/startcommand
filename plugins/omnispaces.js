@@ -5,7 +5,7 @@ let clipboardo4 = function (gurl) {
 let omnispaces = function (par) {
   // Change the funcion name here (imperative)
 
-  let jsonfile = `https://opensheet.elk.sh/1uO7ljxlgVjRtQ8xKk-eWSMnFHQhe2yMrLBRYiudH7tU/Registros`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1uO7ljxlgVjRtQ8xKk-eWSMnFHQhe2yMrLBRYiudH7tU/edit#gid=0`; // Change the URL here (imperative)
 
   let namekey = `titulo`; // Change the Key for the Title of the links, if needed
   let groupkey = `tipo`; // Change the Key for the Groups of the links, if needed
@@ -13,9 +13,8 @@ let omnispaces = function (par) {
   
 
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    
       let dados = select(jsondata, multipatterncheck_exclude, "OMNI_ " + par);
       let selectedarr = tags(dados, groupkey, ",");
       let code = `<div class="outputgrid">`;

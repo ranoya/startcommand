@@ -3,7 +3,7 @@ let play = function (par) {
   clearInterval(voltaaoinput);
   // Change the funcion name here (imperative)
 
-  let jsonfile = `https://opensheet.elk.sh/1Yd1ipdV_nFu1witkBSPEXb4o9PI3Tb2rZZv3xLAVMZY/Links`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1Yd1ipdV_nFu1witkBSPEXb4o9PI3Tb2rZZv3xLAVMZY/edit#gid=0`; // Change the URL here (imperative)
 
   let namekey = `nome`; // Change the Key for the Title of the links, if needed
   let groupkey = `Group`; // Change the Key for the Groups of the links, if needed
@@ -12,9 +12,8 @@ let play = function (par) {
 
   // Don't mess with the rest, if you don't want trouble ;-)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
       let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>Entretenimento</span><span class='categoria'>&nbsp;</span>`;

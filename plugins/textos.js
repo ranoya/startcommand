@@ -1,7 +1,7 @@
 let textos = function (par) {
   // Change the funcion name here (imperative)
 
-  let jsonfile = `https://opensheet.elk.sh/1qXCwwsiNdZnqlvNzLxol-ZGRTEH7fQfRsK2SWpNIuM4/ListaAlfabetica`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1qXCwwsiNdZnqlvNzLxol-ZGRTEH7fQfRsK2SWpNIuM4/edit#gid=0`; // Change the URL here (imperative)
 
   let namekey = `titulo`; // Change the Key for the Title of the links, if needed
   let groupkey = `tipologia`; // Change the Key for the Groups of the links, if needed
@@ -10,9 +10,8 @@ let textos = function (par) {
 
   // Don't mess with the rest, if you don't want trouble ;-)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
       let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteka</span><span class='categoria'>&nbsp;</span>`;

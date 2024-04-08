@@ -1,11 +1,10 @@
 let hubnotes = function (par) {
 
   let code = "";
-  let jsonfile = `https://opensheet.elk.sh/1OAFTp3hglr3zj-cQzXJUqV-QROtaWtSYnCuGjwZIM5Y/Notas`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1OAFTp3hglr3zj-cQzXJUqV-QROtaWtSYnCuGjwZIM5Y/edit#gid=88153848`; // Change the URL here (imperative)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-      .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    
           let arr = [];
           let notetags = [];
 

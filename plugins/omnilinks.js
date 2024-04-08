@@ -5,7 +5,7 @@ let mclipboardol = function (gurl) {
 let omnilinks = function (par) {
   // Change the funcion name here (imperative)
 
-  let jsonfile = `https://opensheet.elk.sh/17ybrU9i4Z_czj_-5n1gWUBvgicHfwJUyMBqriuA-Ab8/Materiais`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/17ybrU9i4Z_czj_-5n1gWUBvgicHfwJUyMBqriuA-Ab8/edit#gid=0`; // Change the URL here (imperative)
 
   let namekey = `Name`; // Change the Key for the Title of the links, if needed
   let groupkey = `Group`; // Change the Key for the Groups of the links, if needed
@@ -14,9 +14,8 @@ let omnilinks = function (par) {
 
 
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
       let code = `<div class="outputgrid">`;

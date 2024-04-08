@@ -532,13 +532,12 @@ let todo = function (par) {
 }
 
 
-  let jsonfile = `https://opensheet.elk.sh/1H74Dro8Qg4s_1adknglOm8mR6Y6f9WdzYDLaAY-15oU/ToDo`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1H74Dro8Qg4s_1adknglOm8mR6Y6f9WdzYDLaAY-15oU/edit#gid=444640757`; // Change the URL here (imperative)
 
   // Don't mess with the rest, if you don't want trouble ;-)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+    getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+      
         let dados = select(jsondata, multipatterncheck_exclude, par);
         let arr = select(dados, multipatterncheck_add, "task workbench cronograma longjob");
         let code = `

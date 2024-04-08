@@ -527,13 +527,11 @@ let hubtodo = function (par) {
 
 
 
-    let jsonfile = `https://opensheet.elk.sh/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/ToDo`; // Change the URL here (imperative)
+    let jsonfile = `https://docs.google.com/spreadsheets/d/1DwFrWE_8oLFejn_zXzU1Fl9HbyOJG3PoarlaDuH2Tc8/edit#gid=444640757`; // Change the URL here (imperative)
 
   // Don't mess with the rest, if you don't want trouble ;-)
 
-    fetch(jsonfile)
-        .then((response) => response.json())
-        .then((jsondataor) => {
+    getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondataor) {
 
             let jsondata = [];
             let kc = 0;

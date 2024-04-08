@@ -1,10 +1,9 @@
 let docurl = function (par) {
 
-  fetch(
-    `https://opensheet.elk.sh/1FeMH82e1fZf56jUJOE7JefxsD4b5PA5ooNQfx6M8nAs/ParametrosURL`
-  )
-    .then((response) => response.json())
-    .then((dados) => {
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1FeMH82e1fZf56jUJOE7JefxsD4b5PA5ooNQfx6M8nAs/edit#gid=1028006888`;
+  
+    getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
+      
         let newarr = select(dados, multipatterncheck_exclude, par);
         let xpto = `<style>
                         .tabelaparam {

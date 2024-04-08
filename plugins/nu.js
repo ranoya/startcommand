@@ -3,11 +3,10 @@ let nu = function (par) {
   let linkkey = `link`;
   let namekey = `titulo`;
 
-  fetch(
-    `https://opensheet.elk.sh/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/NewFile`
-  )
-    .then((response) => response.json())
-    .then((dados) => {
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit#gid=1713256817`;
+  
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
+
       let newarr = select(dados, multipatterncheck_exclude, par);
       let xpto = `<div class="outputgrid">`;
 

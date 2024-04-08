@@ -1,9 +1,8 @@
 let feed = function (par) {
     
-  let jsonfile = `https://opensheet.elk.sh/1aOq6gcK_QKH0TKA-DT7MJln8SwKKaK4EIv9DBB8b5ww/RSS`; 
-    fetch(jsonfile)
-        .then((response) => response.json())
-        .then((jsondata) => {
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1aOq6gcK_QKH0TKA-DT7MJln8SwKKaK4EIv9DBB8b5ww/edit#gid=1176429967`; 
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+
             let code = `
 
             <div class='outputgrid'>`;

@@ -1,7 +1,7 @@
 let work = function (par) {
   // Change the funcion name here (imperative)
 
-  let jsonfile = `https://opensheet.elk.sh/1Gya-umpS7Zh3v8qA8OUCFsb0yXG9DjnnYEmyiwF4a3Y/WorkingOn`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1Gya-umpS7Zh3v8qA8OUCFsb0yXG9DjnnYEmyiwF4a3Y/edit#gid=1341845598`; // Change the URL here (imperative)
 
   let namekey = `Name`; // Change the Key for the Title of the links, if needed
   let groupkey = `Group`; // Change the Key for the Groups of the links, if needed
@@ -10,9 +10,8 @@ let work = function (par) {
 
   // Don't mess with the rest, if you don't want trouble ;-)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-    .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
       let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>Work And No Play</span><span class='categoria'>&nbsp;</span>`;

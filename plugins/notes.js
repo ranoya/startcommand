@@ -1,11 +1,10 @@
 let notes = function (par) {
 
   let code = "";
-  let jsonfile = `https://opensheet.elk.sh/1ywz7XciIATPOn5cF-L51XELMxFaLmgyBZneETNCycG4/Notes`; // Change the URL here (imperative)
+  let jsonfile = `https://docs.google.com/spreadsheets/d/1ywz7XciIATPOn5cF-L51XELMxFaLmgyBZneETNCycG4/edit#gid=444640757`; // Change the URL here (imperative)
 
-  fetch(jsonfile)
-    .then((response) => response.json())
-      .then((jsondata) => {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    
           let arr = [];
           let notetags = [];
 
