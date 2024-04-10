@@ -53,11 +53,12 @@ let retrogame = function (par) {
           code += `<span class='categoria'><a href='javascript:addinput("${selectedarr[c]}")' class='grouplink'>${selectedarr[c]}</a></span>`;
           for (let l = 0; l < arr.length; l++) {
               if (arr[l][groupkey] == selectedarr[c]) {
+                  
+                  console.log(arr[l].screenshots);
                 
-                  console.log(arr[1][screenshot]);
                 code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
                 
-                <div class='thumb' style='background-image: url(${imagefromallsources(arr[l][screenshot])})'></div>
+                <div class='thumb' style='background-image: url(${imagefromallsources(arr[l].screenshots)})'></div>
                 ${arr[l][namekey]}</a>
                 
                 `;
@@ -74,10 +75,11 @@ let retrogame = function (par) {
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][linkkey] != ultimoregistro) {
             
-               console.log(arr[1][screenshot] + " / ");
+              console.log(arr[l].screenshots);
+              
               code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
               
-              <div class='thumb' style='background-image: url(${imagefromallsources(arr[l][screenshot])})'></div>
+              <div class='thumb' style='background-image: url(${imagefromallsources(arr[l].screenshots)})'></div>
               ${arr[l][namekey]}</a>
               
               `;
