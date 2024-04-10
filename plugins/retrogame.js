@@ -1,3 +1,5 @@
+let caramba = "";
+
 let retrogame = function (par) {
   // Change the funcion name here (imperative)
 
@@ -89,6 +91,8 @@ let retrogame = function (par) {
       if (arr.length == 0) {
         code = "";
       }
+        
+        caramba = arr;
       present(code);
     });
 };
