@@ -3,9 +3,9 @@ let retrogame = function (par) {
 
   let jsonfile = `https://docs.google.com/spreadsheets/d/1Yd1ipdV_nFu1witkBSPEXb4o9PI3Tb2rZZv3xLAVMZY/edit#gid=369862065`; // Change the URL here (imperative)
 
-  let namekey = `nome`; // Change the Key for the Title of the links, if needed
-  let groupkey = `linguagem`; // Change the Key for the Groups of the links, if needed
-  let linkkey = `link`; // Change the Key for the link url of the links, if needed
+  let namekey = `Name`; // Change the Key for the Title of the links, if needed
+  let groupkey = `Group`; // Change the Key for the Groups of the links, if needed
+  let linkkey = `Link`; // Change the Key for the link url of the links, if needed
   let typekey = `Type`; // Change the Key for the link type of the links, if needed
   let screenshot = `screenshots`; 
 
@@ -13,8 +13,6 @@ let retrogame = function (par) {
 
     getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
 
-        console.table(jsondata);
-      
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
         let code = `
