@@ -13,7 +13,10 @@ let retrogame = function (par) {
 
     getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
 
-      let dados = select(jsondata, multipatterncheck_exclude, par);
+        let dados = select(jsondata, multipatterncheck_exclude, par);
+        
+        console.table(jsondata);
+        
       let selectedarr = tags(dados, groupkey, ",");
         let code = `
 
