@@ -1,5 +1,3 @@
-let caramba = "";
-
 let retrogame = function (par) {
   // Change the funcion name here (imperative)
 
@@ -17,8 +15,6 @@ let retrogame = function (par) {
 
         let dados = select(jsondata, multipatterncheck_exclude, par);
         
-        console.table(jsondata);
-
       let selectedarr = tags(dados, groupkey, ",");
         let code = `
 
@@ -59,7 +55,7 @@ let retrogame = function (par) {
                 code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
                 
                 <div class='thumb' style='background-image: url(${arr[l][screenshot]})'></div>
-                ${arr[l][namekey]}</a>
+                ${arr[l][namekey]}<br><br><br></a>
                 
                 `;
             }
@@ -78,7 +74,7 @@ let retrogame = function (par) {
               code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
               
               <div class='thumb' style='background-image: url(${arr[l][screenshot]})'></div>
-              ${arr[l][namekey]}</a>
+              ${arr[l][namekey]}<br><br><br></a>
               
               `;
             
@@ -90,8 +86,7 @@ let retrogame = function (par) {
       if (arr.length == 0) {
         code = "";
       }
-        
-        caramba = arr;
+
       present(code);
     });
 };
