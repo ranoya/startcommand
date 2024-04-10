@@ -58,7 +58,7 @@ let retrogame = function (par) {
                 
                 code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
                 
-                <div class='thumb' style='background-image: url(${imagefromallsources(arr[l].screenshots)})'></div>
+                <div class='thumb' style='background-image: url(${arr[l].screenshots})'></div>
                 ${arr[l][namekey]}</a>
                 
                 `;
@@ -76,10 +76,10 @@ let retrogame = function (par) {
           if (arr[l][linkkey] != ultimoregistro) {
             
               console.log(arr[l].screenshots);
-              
+
               code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
               
-              <div class='thumb' style='background-image: url(${imagefromallsources(arr[l].screenshots)})'></div>
+              <div class='thumb' style='background-image: url(${arr[l].screenshots})'></div>
               ${arr[l][namekey]}</a>
               
               `;
