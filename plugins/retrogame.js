@@ -24,7 +24,7 @@ let retrogame = function (par) {
 
             .thumb {
                 width: calc(100% - 4px);
-                aspect-ratio: 3/4;
+                aspect-ratio: 4/3;
                 background-repeat: no-repeat;
                 background-position: center center;
                 background-size: cover;
@@ -46,19 +46,18 @@ let retrogame = function (par) {
         namekey,
         groupkey,
         linkkey,
-        typekey,
+          typekey,
+        screenshot
       ]);
       if (arr.length > 10) {
         for (let c = 0; c < selectedarr.length; c++) {
           code += `<span class='categoria'><a href='javascript:addinput("${selectedarr[c]}")' class='grouplink'>${selectedarr[c]}</a></span>`;
           for (let l = 0; l < arr.length; l++) {
               if (arr[l][groupkey] == selectedarr[c]) {
-                  
-                  console.log(arr[l].screenshots);
-                
+                         
                 code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
                 
-                <div class='thumb' style='background-image: url(${arr[l].screenshots})'></div>
+                <div class='thumb' style='background-image: url(${arr[l][screenshot]})'></div>
                 ${arr[l][namekey]}</a>
                 
                 `;
@@ -75,11 +74,9 @@ let retrogame = function (par) {
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][linkkey] != ultimoregistro) {
             
-              console.log(arr[l].screenshots);
-
               code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
               
-              <div class='thumb' style='background-image: url(${arr[l].screenshots})'></div>
+              <div class='thumb' style='background-image: url(${arr[l][screenshot]})'></div>
               ${arr[l][namekey]}</a>
               
               `;
