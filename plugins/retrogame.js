@@ -16,7 +16,7 @@ let retrogame = function (par) {
         let dados = select(jsondata, multipatterncheck_exclude, par);
         
         console.table(jsondata);
-        
+
       let selectedarr = tags(dados, groupkey, ",");
         let code = `
 
@@ -54,7 +54,7 @@ let retrogame = function (par) {
           for (let l = 0; l < arr.length; l++) {
               if (arr[l][groupkey] == selectedarr[c]) {
                 
-                  console.log(arr[l][screenshot]);
+                  console.log(arr[1][screenshot]);
                 code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
                 
                 <div class='thumb' style='background-image: url(${imagefromallsources(arr[l][screenshot])})'></div>
@@ -74,7 +74,7 @@ let retrogame = function (par) {
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][linkkey] != ultimoregistro) {
             
-               console.log(arr[l][screenshot] + " / ");
+               console.log(arr[1][screenshot] + " / ");
               code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>
               
               <div class='thumb' style='background-image: url(${imagefromallsources(arr[l][screenshot])})'></div>
