@@ -48,7 +48,6 @@ let retrogame = function (par) {
         namekey,
         groupkey,
         linkkey,
-          typekey,
         screenshot
       ]);
       if (arr.length > 10) {
