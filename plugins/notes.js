@@ -140,7 +140,7 @@ let notes = function (par) {
                 }
 
                 for (let k = 0; k < listalinks.length; k++) {
-                    code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/hubnotes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
+                    code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/notes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
                 }
 
                 code += `</div>`;
@@ -163,7 +163,7 @@ let notes = function (par) {
                 }
 
                 code += `<div>`;
-                code += `<div class='headtable' style='display: inline;'><a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/hubnotes ${notetags[c].replace('#',">")} ");' >${notetags[c]}</a></div>`;
+                code += `<div class='headtable' style='display: inline;'><a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/notes ${notetags[c].replace('#',">")} ");' >${notetags[c]}</a></div>`;
 
                 colunas[c] = {};
 
@@ -195,7 +195,7 @@ let notes = function (par) {
 
                     code += `<div style='display: block; text-align: right;'>`;
                     for (let k = 0; k < listalinks.length; k++) {
-                        code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;'  href='javascript:setinput("/hubnotes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
+                        code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;'  href='javascript:setinput("/notes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
                     }
                     code += `</div>`;
 
