@@ -5,14 +5,14 @@ let dados = function (par) {
     <b>RG</b> 27.382.382-6 - 17/04/1991 - SSP/SP<br>
     <b>REGISTRO CNH</b> 04027330455<br>
     <b>CARTEIRA DE TRABALHO (CTPS)</b> Número: 011802 Série: 00277-SP<br>
-    <b>NIS/PIS/PASE</b>P 130.14822.89-1<br>
+    <b>NIS/PIS/PASEP</b> 130.14822.89-1<br>
     <b>TÍTULO DE ELEITOR</b> 251817260116 ZONA: 0251 SEÇÃO: 0015 DATA DE EMISSÃO: 13/04/2016<br>
     <b>CDI (Certificado de dispensa de incorporação) / CAM / Reservista</b> 4 CSM RA 04-030-232072-2<br>
     <b>NÚMERO USP</b> 3785885<br>
     <b>REGISTRO NO CREA RNP</b> 2606707265<br>
     <b>CARTÃO DO SUS</b> 708600027069189<br>
     <b>TIPO SANGUÍNEO</b> O+<br>
-    <b>PLANO DE SAÚDE SUL-AMÉRICA</b> 515 88888457035210014<br>
+    <b>PLANO DE SAÚDE CASSI</b> 1611910004870079<br>
     <br>
     <br>
     </div>
