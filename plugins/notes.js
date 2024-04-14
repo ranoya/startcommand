@@ -4,9 +4,7 @@ let notes = function (par) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1ywz7XciIATPOn5cF-L51XELMxFaLmgyBZneETNCycG4/edit#gid=444640757`; // Change the URL here (imperative)
 
     getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
-      
-        console.table(jsondata);
-    
+          
           let arr = [];
           let notetags = [];
 
