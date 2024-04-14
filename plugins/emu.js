@@ -16,7 +16,7 @@ let emu = function (par) {
      
       let dados = select(jsondata, multipatterncheck_exclude, par);
       let selectedarr = tags(dados, groupkey, ",");
-      let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>Desenvolvimento</span><span class='categoria'>&nbsp;</span>`;
+      let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>Emuladores</span><span class='categoria'>&nbsp;</span>`;
       let arr = orderbytemplate(dados, selectedarr, groupkey, [
         namekey,
         groupkey,
