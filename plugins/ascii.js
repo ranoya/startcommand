@@ -12,7 +12,7 @@ let ascii = function (par) {
     .symbols {
       display: grid;
     grid-template-columns: [ init ] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [fim];
-    gap: 3px 10px;
+    gap: 1em;
     width: calc(100vw - 50px);
     margin-left: 20px;
     margin-right: 20px;
