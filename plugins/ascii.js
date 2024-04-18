@@ -9,7 +9,7 @@ let ascii = function (par) {
     <style>
     .symbols {
       display: grid;
-    grid-template-columns: [init] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [ ultimacol ] 1fr [ fim ];
+    grid-template-columns: [ init ] 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [fim];
     gap: 3px 10px;
     width: calc(100vw - 50px);
     margin-left: 20px;
@@ -23,7 +23,7 @@ let ascii = function (par) {
       border-radius: 10%;
       padding: 1rem;
       aspect-ratio: 1;
-      font-size: 6rem;
+      font-size: 30px;
       text-align: center;
       line-height: 100%;
       min-height: 125px;
