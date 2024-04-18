@@ -28,7 +28,6 @@ let ascii = function (par) {
       font-size: 30px;
       text-align: center;
       line-height: 100%;
-      min-height: 125px;
       display: flex;
       justify-content: center;
       align-items: center;
