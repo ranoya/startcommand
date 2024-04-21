@@ -21,7 +21,7 @@ let xenon = function (par) {
 
       getcsvdata(GoogleSheetCsvURL(jsonfile2), function (jsondata) {
         for (let i = 0; i < jsondata.length; i++) {
-          xpto += `<a target='_blank' href='${jsondata[i].link}' class='rsslink'><div style='margin-bottom: 16px; padding-top: 100%; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url(${jsondata[i].imagem});'></div>${jsondata[i].titulo} • ${jsondata[i].site}<br><br></a>`;
+          xpto += `<a target='_blank' href='${jsondata[i].link}' class='rsslink'><div style='margin-bottom: 16px; padding-top: 100%; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url(${jsondata[i].imagem});'></div>${jsondata[i].titulo} • ${jsondata[i].fonte}<br><br></a>`;
         }
 
         xpto += `</div>`;
