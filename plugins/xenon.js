@@ -13,7 +13,7 @@ let xenon = function (par) {
       let newarr = select(dados, multipatterncheck_exclude, par);
     
       for (let i = 0; i < newarr.length; i++) {
-        xpto += `<a target='_blank' href='${newarr[i][linkkey]}'>${newarr[i][namekey]}`;
+        xpto += `<a target='_blank' href='${newarr[i][linkkey]}'>${newarr[i][namekey]}</a>`;
       }
     
     
