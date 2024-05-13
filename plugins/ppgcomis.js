@@ -101,12 +101,12 @@ let ppgcomis = function (xpar) {
             }
         </style>
       
-        <div class="comissmenu"><a class='linksmod'href='javascript:setinput("/comiss ")'>TODOS OS ANOS</a>`;
+        <div class="comissmenu"><a class='linksmod'href='javascript:setinput("/ppgcomis ")'>TODOS OS ANOS</a>`;
 
     let todosanos = unique(dados, "ano");
 
     for (let k = todosanos.length - 1; k >= 0; k--) {
-      xpto += `<a class='linksmod' href='javascript:setinput("/comiss ${todosanos[k]} ")'>${todosanos[k]}</a>`;
+      xpto += `<a class='linksmod' href='javascript:setinput("/ppgcomis ${todosanos[k]} ")'>${todosanos[k]}</a>`;
     }
 
     xpto += "</div>";
