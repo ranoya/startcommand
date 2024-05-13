@@ -20,7 +20,7 @@ let ppgmontalista = function (arr, crit) {
   return code;
 };
 
-let ppgcomiss = function (xpar) {
+let ppgcomis = function (xpar) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1tjmcRwo4mLUYKrlitWA1c41T8iWebQcpBjEw77Y5LpU/edit#gid=665266084`;
 
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
