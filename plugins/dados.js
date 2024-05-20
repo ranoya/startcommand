@@ -26,7 +26,6 @@ let dados = function (par) {
     <img style='width: 100%;' src='https://lh3.googleusercontent.com/d/11-OOTqwIo-SndedKnUOUsReNIIYtq2AZ' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Avatars/avatar-glitch.jpg' />
     <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/bg-turbina.jpg' />
-    <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/bg-turbina.jpg' />
     <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/Avatars/turbinasqueeze.jpg' />
     <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/Avatars/vissered.png' />
     </div>
