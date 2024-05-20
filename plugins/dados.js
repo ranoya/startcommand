@@ -1,6 +1,5 @@
 let dados = function (par) {
-
-    let xpto = `<div class='simplediv'>
+  let xpto = `<div class='simplediv'>
     <b>SIAPE</b> 2364118<br>
     <b>RG</b> 27.382.382-6 - 17/04/1991 - SSP/SP<br>
     <b>REGISTRO CNH</b> 04027330455<br>
@@ -24,10 +23,14 @@ let dados = function (par) {
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Logotipos/corvo-green.svg' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Logotipos/redcrow.svg' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Logotipos/nightcrow.svg' />
-    <img style='width: 100%;' src='https://drive.google.com/uc?export=view&id=11-OOTqwIo-SndedKnUOUsReNIIYtq2AZ&authuser=guilherme.ranoya%40ufpe.br&usp=drive_fs' />
+    <img style='width: 100%;' src='https://lh3.googleusercontent.com/d/11-OOTqwIo-SndedKnUOUsReNIIYtq2AZ' />
+    <img style='width: 100%;' src='https://www.ranoya.com/Assets/Avatars/avatar-glitch.jpg' />
+    <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/bg-turbina.jpg' />
+    <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/bg-turbina.jpg' />
+    <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/Avatars/turbinasqueeze.jpg' />
+    <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/Avatars/vissered.png' />
     </div>
     `;
 
-    present(xpto);
-
-}
+  present(xpto);
+};

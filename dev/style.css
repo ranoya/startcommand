@@ -190,7 +190,7 @@ a:hover {
 @media screen and (max-width: 1100px) {
   .gridhead,
   .outputgrid {
-    grid-template-columns: 1fr 1fr [ultimacol] 1fr;
+    grid-template-columns: 1fr 1fr [ultimacol] 1fr [fim];
   }
 
   .categoria {
@@ -201,7 +201,7 @@ a:hover {
 @media screen and (max-width: 850px) {
   .gridhead,
   .outputgrid {
-    grid-template-columns: 1fr [ultimacol] 1fr;
+    grid-template-columns: 1fr [ultimacol] 1fr [fim];
   }
 
   .categoria {
@@ -212,7 +212,7 @@ a:hover {
 @media screen and (max-width: 650px) {
   .gridhead,
   .outputgrid {
-    grid-template-columns: [ultimacol] 1fr;
+    grid-template-columns: [ultimacol] 1fr [fim];
   }
 
   .categoria {
