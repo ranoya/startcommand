@@ -20,11 +20,15 @@ let dados = function (par) {
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Avatars/%21%21%2100000.jpeg' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Diagramas/autoretrato-3_5229272109_o.png' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/coverimages/ogRanoya.jpg' />
+
+    <img style='width: 100%;' src='https://lh3.googleusercontent.com/d/11-OOTqwIo-SndedKnUOUsReNIIYtq2AZ' />
+    <img style='width: 100%;' src='https://www.ranoya.com/Assets/Avatars/avatar-glitch.jpg' />
+    <img style='width: 100%;' src='https://www.ranoya.com/Assets/portfolio/pixel-avatar-2011_6250092631_o.jpg' />
+    
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Logotipos/corvo-green.svg' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Logotipos/redcrow.svg' />
     <img style='width: 100%;' src='https://www.ranoya.com/Assets/Logotipos/nightcrow.svg' />
-    <img style='width: 100%;' src='https://lh3.googleusercontent.com/d/11-OOTqwIo-SndedKnUOUsReNIIYtq2AZ' />
-    <img style='width: 100%;' src='https://www.ranoya.com/Assets/Avatars/avatar-glitch.jpg' />
+    
     <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/bg-turbina.jpg' />
     <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/Avatars/turbinasqueeze.jpg' />
     <img style='width: 100%; grid-column: 1 / fim;' src='https://www.ranoya.com/Assets/Avatars/vissered.png' />
