@@ -1,30 +1,26 @@
 let notes = function (par) {
-
   let code = "";
   let jsonfile = `https://docs.google.com/spreadsheets/d/1ywz7XciIATPOn5cF-L51XELMxFaLmgyBZneETNCycG4/edit#gid=444640757`; // Change the URL here (imperative)
 
-    getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
-          
-          let arr = [];
-          let notetags = [];
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
+    let arr = [];
+    let notetags = [];
 
-          let arrowtag = par.match(/(>\S*)/gi);
+    let arrowtag = par.match(/(>\S*)/gi);
 
-          if (arrowtag != null) {        
-            
-              par = par.replace(">", "#");
-              notetags[0] = arrowtag[0].replace(">", "#");
-            
-              console.log(" ------------------- " + notetags[0] + " / " + par);
+    if (arrowtag != null) {
+      par = par.replace(">", "#");
+      notetags[0] = arrowtag[0].replace(">", "#");
 
-              arr = select(jsondata, multipatterncheck_exclude, par);
-              
-        } else {
-            arr = select(jsondata, multipatterncheck_exclude, par);
-            notetags = tags(arr, "Tags", " ");
-        }
+      console.log(" ------------------- " + notetags[0] + " / " + par);
 
-            code += `
+      arr = select(jsondata, multipatterncheck_exclude, par);
+    } else {
+      arr = select(jsondata, multipatterncheck_exclude, par);
+      notetags = tags(arr, "Tags", " ");
+    }
+
+    code += `
             <style>
             .tabelaflex {
                 display: flex;
@@ -107,115 +103,127 @@ let notes = function (par) {
             </style>
             `;
 
-        
+    if (notetags.length == 1 || notetags.length > 4) {
+      code += `<div class='tabelaflex'>`;
 
-            
-        if (notetags.length == 1 || notetags.length > 4) {
-
-            code += `<div class='tabelaflex'>`;
-            
-            for (let i = 0; i < arr.length; i++) {
-
-                code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i].Descrit.length >= 700) {
+          code += `<div style='flex-basis: calc(100% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
                 ${arr[i].Descrit}<br>
                 `;
+        } else if (arr[i].Descrit.length > 300 && arr[i].Descrit.length < 700) {
+          code += `<div style='flex-basis: calc(50% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                ${arr[i].Descrit}<br>
+                `;
+        } else if (arr[i].Descrit.length <= 300) {
+          code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                ${arr[i].Descrit}<br>
+                `;
+        }
 
-                let listalinks = (arr[i].Tags).split(" ");
+        let listalinks = arr[i].Tags.split(" ");
 
-                code += `<div style='display: block; text-align: right;'>`;
+        code += `<div style='display: block; text-align: right;'>`;
 
-                if ((arr[i].Ref != "" && typeof arr[i].Ref != 'undefined') || (arr[i].Exemplo != "" && typeof arr[i].Exemplo != 'undefined')) {
-
-                    if (typeof arr[i].Ref == 'undefined') {
-                        arr[i].Ref == '';
-                    }
-                    if (typeof arr[i].Exemplo == 'undefined') {
-                        arr[i].Exemplo == '';
-                    }
-                    code += `<div class='refer'>
+        if (
+          (arr[i].Ref != "" && typeof arr[i].Ref != "undefined") ||
+          (arr[i].Exemplo != "" && typeof arr[i].Exemplo != "undefined")
+        ) {
+          if (typeof arr[i].Ref == "undefined") {
+            arr[i].Ref == "";
+          }
+          if (typeof arr[i].Exemplo == "undefined") {
+            arr[i].Exemplo == "";
+          }
+          code += `<div class='refer'>
                     <div>${arr[i].Ref}</div>
                     <div>${arr[i].Exemplo}</div>
                     </div>`;
-                }
+        }
 
-                for (let k = 0; k < listalinks.length; k++) {
-                    code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/notes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
-                }
+        for (let k = 0; k < listalinks.length; k++) {
+          code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/notes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
+        }
 
-                code += `</div>`;
-                
-                code += `</div>`;
-            }
+        code += `</div>`;
 
-            code += `</div>`;
+        code += `</div>`;
+      }
 
+      code += `</div>`;
+    } else {
+      code += `<div class='tabelaacoes'>`;
+
+      let colunas = [];
+      let regcolunas = [];
+
+      for (let c = 0; c < notetags.length; c++) {
+        if (typeof notetags[c] == "undefined") {
+          notetags[c] = "";
+        }
+
+        code += `<div>`;
+        code += `<div class='headtable' style='display: inline;'><a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/notes ${notetags[
+          c
+        ].replace("#", ">")} ");' >${notetags[c]}</a></div>`;
+
+        colunas[c] = {};
+
+        if (notetags[c] != "") {
+          regcolunas[c] = select(arr, multipatterncheck_exclude, notetags[c]);
         } else {
+          regcolunas[c] = select(
+            arr,
+            multipatterncheck_exclude,
+            "aasoimouewnqoxq"
+          );
+        }
 
-            code += `<div class='tabelaacoes'>`;
+        for (let h = 0; h < regcolunas[c].length; h++) {
+          code += `<div class='card' style='margin-bottom: 16px;'><b>${regcolunas[c][h].Titulo}</b><br>${regcolunas[c][h].Descrit}<br>`;
 
-            let colunas = [];
-            let regcolunas = [];
-  
-            for (let c = 0; c < notetags.length; c++) {
-                if (typeof notetags[c] == 'undefined') {
-                    notetags[c] = ''
-                }
-
-                code += `<div>`;
-                code += `<div class='headtable' style='display: inline;'><a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/notes ${notetags[c].replace('#',">")} ");' >${notetags[c]}</a></div>`;
-
-                colunas[c] = {};
-
-                if (notetags[c] != '') {
-                    regcolunas[c] = select(arr, multipatterncheck_exclude, notetags[c]);
-                } else {
-                    regcolunas[c] = select(arr, multipatterncheck_exclude, "aasoimouewnqoxq");
-                }
-
-                for (let h = 0; h < regcolunas[c].length; h++) {
-
-                    code += `<div class='card' style='margin-bottom: 16px;'><b>${regcolunas[c][h].Titulo}</b><br>${regcolunas[c][h].Descrit}<br>`;
-
-                    if ((regcolunas[c][h].Ref != "" && typeof regcolunas[c][h].Ref != 'undefined') || (regcolunas[c][h].Exemplo != "" && typeof regcolunas[c][h].Exemplo != 'undefined')) {
-
-                    if (typeof regcolunas[c][h].Ref == 'undefined') {
-                        regcolunas[c][h].Ref == '';
-                    }
-                    if (typeof regcolunas[c][h].Exemplo == 'undefined') {
-                        regcolunas[c][h].Exemplo == '';
-                    }
-                    code += `<div class='refer'>
+          if (
+            (regcolunas[c][h].Ref != "" &&
+              typeof regcolunas[c][h].Ref != "undefined") ||
+            (regcolunas[c][h].Exemplo != "" &&
+              typeof regcolunas[c][h].Exemplo != "undefined")
+          ) {
+            if (typeof regcolunas[c][h].Ref == "undefined") {
+              regcolunas[c][h].Ref == "";
+            }
+            if (typeof regcolunas[c][h].Exemplo == "undefined") {
+              regcolunas[c][h].Exemplo == "";
+            }
+            code += `<div class='refer'>
                     <div>${regcolunas[c][h].Ref}</div>
                     <div>${regcolunas[c][h].Exemplo}</div>
                     </div>`;
-                }
+          }
 
-                    let listalinks = (regcolunas[c][h].Tags).split(" ");
+          let listalinks = regcolunas[c][h].Tags.split(" ");
 
-                    code += `<div style='display: block; text-align: right;'>`;
-                    for (let k = 0; k < listalinks.length; k++) {
-                        code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;'  href='javascript:setinput("/notes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
-                    }
-                    code += `</div>`;
+          code += `<div style='display: block; text-align: right;'>`;
+          for (let k = 0; k < listalinks.length; k++) {
+            code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;'  href='javascript:setinput("/notes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
+          }
+          code += `</div>`;
 
-
-                    code += `</div>`;
-                }
-
-                code += `</div>`;
-            }
-
-            code += `</div>`;
-            
+          code += `</div>`;
         }
 
-        
-
-      code += `<div>`;
-      if (arr.length == 0) {
-        code += ``;
+        code += `</div>`;
       }
-      present(code);
-    });
+
+      code += `</div>`;
+    }
+
+    code += `<div>`;
+    if (arr.length == 0) {
+      code += ``;
+    }
+    present(code);
+  });
 };
