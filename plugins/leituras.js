@@ -3,7 +3,7 @@ let bclipper = function (gurl) {
   navigator.clipboard.writeText(gurl);
 };
 
-let hubnotes = function (par) {
+let leituras = function (par) {
   let code = "";
   let jsonfile = `https://docs.google.com/spreadsheets/d/1ywz7XciIATPOn5cF-L51XELMxFaLmgyBZneETNCycG4/edit#gid=1601649623`; // Change the URL here (imperative)
 
