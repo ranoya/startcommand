@@ -114,6 +114,10 @@ let hubnotes = function (par) {
                 .card {
                     margin-bottom: 48px;
                 }
+                
+                .tabelaflex div {
+                    flex-basis: calc(100% - 16px) !important;
+                }
             }
 
             </style>
