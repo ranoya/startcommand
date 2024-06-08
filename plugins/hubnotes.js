@@ -1,30 +1,31 @@
-let hubnotes = function (par) {
+let clipper = function (gurl) {
+  console.log(gurl);
+  navigator.clipboard.writeText(gurl);
+};
 
+let hubnotes = function (par) {
   let code = "";
   let jsonfile = `https://docs.google.com/spreadsheets/d/1OAFTp3hglr3zj-cQzXJUqV-QROtaWtSYnCuGjwZIM5Y/edit#gid=88153848`; // Change the URL here (imperative)
 
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
-    
-          let arr = [];
-          let notetags = [];
+    let arr = [];
+    let notetags = [];
 
-          let arrowtag = par.match(/(>\S*)/gi);
+    let arrowtag = par.match(/(>\S*)/gi);
 
-          if (arrowtag != null) {        
-            
-              par = par.replace(">", "#");
-              notetags[0] = arrowtag[0].replace(">", "#");
-            
-              console.log(" ------------------- " + notetags[0] + " / " + par);
+    if (arrowtag != null) {
+      par = par.replace(">", "#");
+      notetags[0] = arrowtag[0].replace(">", "#");
 
-              arr = select(jsondata, multipatterncheck_exclude, par);
-              
-        } else {
-            arr = select(jsondata, multipatterncheck_exclude, par);
-            notetags = tags(arr, "Tags", " ");
-        }
+      console.log(" ------------------- " + notetags[0] + " / " + par);
 
-            code += `
+      arr = select(jsondata, multipatterncheck_exclude, par);
+    } else {
+      arr = select(jsondata, multipatterncheck_exclude, par);
+      notetags = tags(arr, "Tags", " ");
+    }
+
+    code += `
             <style>
             .tabelaflex {
                 display: flex;
@@ -52,7 +53,8 @@ let hubnotes = function (par) {
                 padding: 10px;
                 box-shadow: 2px 2px 5px #00000011;
                 color: var(--text-color, #616161);
-                font-size: 13px;
+                font-size: 16px;
+                line-height: 24px;
 
             }
 
@@ -76,6 +78,16 @@ let hubnotes = function (par) {
                 width: 100%;
                 height: 1px;
                 border-bottom: 1px dashed #bbbbbb88;
+            }
+
+
+            .icone {
+                   height: 20px;
+                   vertical-align: top;
+            }
+
+            a:hover .icone path {
+              fill: var(--color-hover, #34f8d1);
             }
 
             
@@ -107,50 +119,59 @@ let hubnotes = function (par) {
             </style>
             `;
 
-        
+    /* if (notetags.length == 1 || notetags.length > 4) { */
 
-            
-        if (notetags.length == 1 || notetags.length > 4) {
+    code += `<div class='tabelaflex'>`;
 
-            code += `<div class='tabelaflex'>`;
-            
-            for (let i = 0; i < arr.length; i++) {
-
-                code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].Descrit.length >= 700) {
+        code += `<div style='flex-basis: calc(100% - 48px)' class='card'>
                 <b>${arr[i].Titulo}</b><br>
-                ${arr[i].Descrit}<br>
+                <a href='javascript:clipper("${arr[i].Descrit} (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})");'>"${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})</a><br>
                 `;
+      } else if (arr[i].Descrit.length > 300 && arr[i].Descrit.length < 700) {
+        code += `<div style='flex-basis: calc(50% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                <a href='javascript:clipper("${arr[i].Descrit} (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})");'>"${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})</a><br>
+                `;
+      } else if (arr[i].Descrit.length <= 300) {
+        code += `<div style='flex-basis: calc(20% - 48px)' class='card'>
+                <b>${arr[i].Titulo}</b><br>
+                <a href='javascript:clipper("${arr[i].Descrit} (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})");'>"${arr[i].Descrit}" (${arr[i].Autor}, ${arr[i].Ano}, ${arr[i].Ref})</a><br>
+                `;
+      }
 
-                let listalinks = (arr[i].Tags).split(" ");
+      let listalinks = arr[i].Tags.split(" ");
 
-                code += `<div style='display: block; text-align: right;'>`;
+      code += `<div style='display: block; text-align: right;'>`;
 
-                if ((arr[i].Ref != "" && typeof arr[i].Ref != 'undefined') || (arr[i].Exemplo != "" && typeof arr[i].Exemplo != 'undefined')) {
-
-                    if (typeof arr[i].Ref == 'undefined') {
-                        arr[i].Ref == '';
-                    }
-                    if (typeof arr[i].Exemplo == 'undefined') {
-                        arr[i].Exemplo == '';
-                    }
-                    code += `<div class='refer'>
-                    <div>${arr[i].Ref}</div>
-                    <div>${arr[i].Exemplo}</div>
+      if (arr[i].Livro != "" && typeof arr[i].Livro != "undefined") {
+        if (typeof arr[i].Link != "undefined" && arr[i].Link != "") {
+          code += `<div class='refer'>
+                    <div><a target='_blank' href='${arr[i].Link}'>
+                      <svg class="icone" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M31 12.7742L23.3077 6H11V34H31V12.7742Z" fill="var(--color-link, #bdb5b5)"/>
+                    </svg></a> <a href='javascript:navigator.clipboard.writeText("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
                     </div>`;
-                }
-
-                for (let k = 0; k < listalinks.length; k++) {
-                    code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/hubnotes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
-                }
-
-                code += `</div>`;
-                
-                code += `</div>`;
-            }
-
-            code += `</div>`;
-
         } else {
+          code += `<div class='refer'>
+                    <div><a href='javascript:navigator.clipboard.writeText("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
+                    </div>`;
+        }
+      }
+
+      for (let k = 0; k < listalinks.length; k++) {
+        code += `<a class='grouplink' style='margin-left: 0; margin-right: 4px; margin-bottom: 0;' href='javascript:setinput("/hubnotes ${listalinks[k]} ");'>${listalinks[k]}</a> `;
+      }
+
+      code += `</div>`;
+
+      code += `</div>`;
+    }
+
+    code += `</div>`;
+
+    /*  } else {
 
             code += `<div class='tabelaacoes'>`;
 
@@ -205,17 +226,18 @@ let hubnotes = function (par) {
 
                 code += `</div>`;
             }
+            
+            
 
             code += `</div>`;
             
         }
+        */
 
-        
-
-      code += `<div>`;
-      if (arr.length == 0) {
-        code += ``;
-      }
-      present(code);
-    });
+    code += `<div>`;
+    if (arr.length == 0) {
+      code += ``;
+    }
+    present(code);
+  });
 };
