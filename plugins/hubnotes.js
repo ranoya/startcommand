@@ -151,11 +151,11 @@ let hubnotes = function (par) {
                     <div><a target='_blank' href='${arr[i].Link}'>
                       <svg class="icone" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M31 12.7742L23.3077 6H11V34H31V12.7742Z" fill="var(--color-link, #bdb5b5)"/>
-                    </svg></a> <a href='javascript:navigator.clipboard.writeText("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
+                    </svg></a> <a href='javascript:clipper("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
                     </div>`;
         } else {
           code += `<div class='refer'>
-                    <div><a href='javascript:navigator.clipboard.writeText("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
+                    <div><a href='javascript:clipper("${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}")'>${arr[i].Autor}. ${arr[i].Livro}, ${arr[i].Ano}</a></div>
                     </div>`;
         }
       }
