@@ -14,6 +14,9 @@ let textosvisse = function (par) {
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
     let dados = select(jsondata, multipatterncheck_exclude, par);
     let selectedarr = tags(dados, groupkey, ",");
+
+    console.table(selectedarr);
+
     let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteka</span><span class='categoria'>&nbsp;</span>`;
 
     for (let i = 0; i < selectedarr.length; i++) {
