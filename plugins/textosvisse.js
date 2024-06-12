@@ -17,6 +17,8 @@ let textosvisse = function (par) {
 
     let arr = sortbylist(dados, selectedarr, groupkey);
 
+    console.log(arr.length);
+
     if (arr.length > 10) {
       for (let c = 0; c < selectedarr.length; c++) {
         code += `
@@ -27,6 +29,8 @@ let textosvisse = function (par) {
           }
         }
       }
+
+      console.log(code);
     } else {
       let ultimoregistro = "";
       code += `<span class='categoria'>`;
@@ -42,6 +46,8 @@ let textosvisse = function (par) {
       }
     }
     code += `<div>`;
+
+    console.log(code);
 
     console.table(arr);
 
