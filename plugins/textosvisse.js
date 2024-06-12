@@ -21,6 +21,7 @@ let textosvisse = function (par) {
 
     for (let i = 0; i < dados.length; i++) {
       code += `<div>${dados[i][linkkey]}</div>`;
+      console.log(dados[i][linkkey]);
     }
 
     /*
