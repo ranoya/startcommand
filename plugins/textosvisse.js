@@ -17,8 +17,6 @@ let textosvisse = function (par) {
 
     let arr = sortbylist(dados, selectedarr, groupkey);
 
-    console.log(arr.length);
-
     if (arr.length > 10) {
       for (let c = 0; c < selectedarr.length; c++) {
         code += `
@@ -29,15 +27,16 @@ let textosvisse = function (par) {
           }
         }
       }
-
-      console.log(code);
     } else {
       let ultimoregistro = "";
       code += `<span class='categoria'>`;
+
       for (let c = 0; c < selectedarr.length; c++) {
         code += `<a href='javascript:addinput("${selectedarr[c]}")' class='grouplink'>${selectedarr[c]}</a> • `;
       }
+
       code += `</span>`;
+
       for (let l = 0; l < arr.length; l++) {
         if (arr[l][linkkey] != ultimoregistro) {
           code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
@@ -45,12 +44,11 @@ let textosvisse = function (par) {
         }
       }
     }
+
     code += `<div>`;
-
-    console.log(code);
-
-    console.table(arr);
-
-    present("CARAMBA???");
+    if (arr.length == 0) {
+      code = "";
+    }
+    present(code);
   });
 };
