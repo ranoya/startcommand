@@ -20,7 +20,7 @@ let textosvisse = function (par) {
     let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteca VISSE</span><span class='categoria'>&nbsp;</span>`;
 
     for (let i = 0; i < dados.length; i++) {
-      code += `<div>${dados[i][linkkey]}</div>`;
+      code += `<a target='_blank' href='>${dados[i][linkkey]}'>${dados[i][namekey]}</div>`;
       console.log(dados[i][linkkey]);
     }
 
