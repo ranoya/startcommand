@@ -18,10 +18,7 @@ let textosvisse = function (par) {
     console.table(dados);
 
     let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteca VISSE</span><span class='categoria'>&nbsp;</span>`;
-
-    for (let i = 0; i < dados.length; i++) {
-      code += `<div>${dados[i][linkkey]}</div>`;
-    }
+    code += `<div>${dados[5][linkkey]}</div>`;
 
     /*
     let arr = sortbylist(dados, selectedarr, groupkey);
