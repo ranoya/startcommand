@@ -22,6 +22,8 @@ let textosvisse = function (par) {
     for (let i = 0; i < dados.length; i++) {
       code += `<a target='_blank' href='>${dados[i][linkkey]}'>${dados[i][namekey]}</div>`;
       console.log(dados[i][linkkey]);
+
+      present(code + `</div>`);
     }
 
     /*
