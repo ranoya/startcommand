@@ -12,7 +12,7 @@ let textosvisse = function (par) {
   // Don't mess with the rest, if you don't want trouble ;-)
 
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
-    let dados = select(jsondata, multipatterncheck_exclude, par);
+    let dados = selecte(jsondata, "junqueira " + par);
     // let selectedarr = tags(dados, groupkey, ",");
 
     console.table(dados);
@@ -22,8 +22,6 @@ let textosvisse = function (par) {
     for (let i = 0; i < dados.length; i++) {
       code += `<a target='_blank' href='>${dados[i][linkkey]}'>${dados[i][namekey]}</div>`;
       console.log(dados[i][linkkey]);
-
-      present(code + `</div>`);
     }
 
     /*
