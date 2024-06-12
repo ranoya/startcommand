@@ -1,12 +1,34 @@
 let ascii = function (par) {
+  let symbols = [
+    "©",
+    "®",
+    "™",
+    "“",
+    "”",
+    "…",
+    "§",
+    "½",
+    "¼",
+    "∞",
+    "æ",
+    "Æ",
+    "✔",
+    "✓",
+    "✖︎",
+    "✘",
+    "❤︎",
+    "★",
+    "ª",
+    "º",
+    "°",
+    "˚",
+    "²",
+    "³",
+    "☞",
+    "☭",
+  ];
 
-    let symbols = [
-      "©", "®", "™", "“", "”", "…", "§", "½", "¼", "∞", "æ", "Æ", "✔", "✓", "✖︎", "✘", "❤︎", "★", "ª", "º", "°", "˚", "²", "³", "☞", "☭"
-    ];
-
-    
-
-    let xpto = `
+  let xpto = `
     
     <style>
     .symbols {
@@ -39,18 +61,24 @@ let ascii = function (par) {
       background: var(--text-color, #ffaa46);
     }
 
+    @media screen and (max-width: 650px) {
+    
+    .symbols {
+        grid-template-columns: [ init ] 1fr 1fr 1fr 1fr 1fr [fim];
+      }
+    }
+
     </style>
 
     <div class='symbols'>
         
     `;
 
-    for (let i = 0; i < symbols.length; i++) {
-        xpto += `<div class='symbol' onclick='navigator.clipboard.writeText("${symbols[i]}")'>${symbols[i]}</div>`;
-    }
+  for (let i = 0; i < symbols.length; i++) {
+    xpto += `<div class='symbol' onclick='navigator.clipboard.writeText("${symbols[i]}")'>${symbols[i]}</div>`;
+  }
 
-    xpto += `</div>`;
+  xpto += `</div>`;
 
-    present(xpto);
-
-}
+  present(xpto);
+};
