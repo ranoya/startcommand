@@ -51,10 +51,6 @@ let textosvisse = function (par) {
 
     console.table(arr);
 
-    /* if (arr.length == 0) {
-        code = "";
-      } */
-
-    present(code);
+    present("CARAMBA???");
   });
 };
