@@ -15,10 +15,12 @@ let textosvisse = function (par) {
     let dados = select(jsondata, multipatterncheck_exclude, par);
     // let selectedarr = tags(dados, groupkey, ",");
 
-    let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteka</span><span class='categoria'>&nbsp;</span>`;
+    console.table(dados);
+
+    let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteca VISSE</span><span class='categoria'>&nbsp;</span>`;
 
     for (let i = 0; i < dados.length; i++) {
-      code += `<a target='_blank' href='${dados[i][linkkey]}'>${dados[i][namekey]}</a>`;
+      code += `<div>${dados[i][namekey]}</div>`;
     }
 
     /*
