@@ -19,12 +19,6 @@ let textosvisse = function (par) {
 
     let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteca VISSE</span><span class='categoria'>&nbsp;</span>`;
 
-    for (let i = 0; i < dados.length; i++) {
-      code += `<a target='_blank' href='>${dados[i][linkkey]}'>${dados[i][namekey]}</div>`;
-      console.log(dados[i][linkkey]);
-    }
-
-    /*
     let arr = sortbylist(dados, selectedarr, groupkey);
     if (arr.length > 10) {
       for (let c = 0; c < selectedarr.length; c++) {
@@ -32,13 +26,7 @@ let textosvisse = function (par) {
             <span class='categoria'><a href='javascript:addinput("${selectedarr[c]}")' class='grouplink'>${selectedarr[c]}</a></span>`;
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][groupkey] == selectedarr[c]) {
-            if (arr[l][typekey] == "self") {
-              code += `<a target='_self' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
-            } else if (arr[l][typekey] == "embed") {
-              code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}");' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
-            } else {
-              code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
-            }
+            code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
           }
         }
       }
@@ -51,13 +39,8 @@ let textosvisse = function (par) {
       code += `</span>`;
       for (let l = 0; l < arr.length; l++) {
         if (arr[l][linkkey] != ultimoregistro) {
-          if (arr[l][typekey] == "self") {
-            code += `<a target='_self' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
-          } else if (arr[l][typekey] == "embed") {
-            code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}");' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
-          } else {
-            code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
-          }
+          code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos' style='grid-column: 1/fim;' >${arr[l][namekey]}</a>`;
+
           ultimoregistro = arr[l][linkkey];
         }
       }
@@ -66,8 +49,6 @@ let textosvisse = function (par) {
     if (arr.length == 0) {
       code = "";
     }
-    
-    */
 
     present(code);
   });
