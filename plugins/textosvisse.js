@@ -15,6 +15,12 @@ let textosvisse = function (par) {
     let dados = select(jsondata, multipatterncheck_exclude, par);
     let selectedarr = tags(dados, groupkey, ",");
     let code = `<div class="outputgrid" style='grid-template-columns: 1fr [fim]'><span class='categoria noline' style='border: 0;'>Biblioteka</span><span class='categoria'>&nbsp;</span>`;
+
+    for (let i = 0; i < selectedarr.length; i++) {
+      code += `<a target='_blank' href='${selectedarr[i][linkkey]}'>${selectedarr[i][namekey]}</a>`;
+    }
+
+    /*
     let arr = sortbylist(dados, selectedarr, groupkey);
     if (arr.length > 10) {
       for (let c = 0; c < selectedarr.length; c++) {
@@ -56,6 +62,9 @@ let textosvisse = function (par) {
     if (arr.length == 0) {
       code = "";
     }
+    
+    */
+
     present(code);
   });
 };
