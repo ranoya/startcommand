@@ -143,7 +143,7 @@ let learn = function (par) {
       .timelineh {
         display: grid;
         grid-auto-columns: 100%;
-        grid-template-rows: 25px 25px calc(100dvh - 266px);
+        grid-template-rows:  calc(100dvh - 266px) 25px 25px;
         gap: 6px 10px;
         width: 100%;
       }
@@ -155,7 +155,7 @@ let learn = function (par) {
         color: black;
         font-size: 11px;
         line-height: 25px;
-        grid-row: 1;
+        grid-row: 3;
         display: none;
       }
 
@@ -174,7 +174,7 @@ let learn = function (par) {
         background-color: white;
         font-size: 11px;
         line-height: 25px;
-        grid-row: 3;
+        grid-row: 1;
         display: none;
       }
 
@@ -196,7 +196,7 @@ let learn = function (par) {
       }
 
       .timelineh_ano {
-        grid-row: 1;
+        grid-row: 3;
         align-content: center;
       }
 
@@ -224,7 +224,7 @@ let learn = function (par) {
       }
 
       .timelineh_cont {
-        grid-row: 3;
+        grid-row: 1;
       }
 
       .timelineh_cont_cont {
@@ -233,7 +233,7 @@ let learn = function (par) {
       }
 
       .timelineh_ano_end {
-        grid-row: 1;
+        grid-row: 3;
         display: none;
       }
 
@@ -243,7 +243,7 @@ let learn = function (par) {
       }
 
       .timelineh_cont_end {
-        grid-row: 3;
+        grid-row: 1;
         display: none;
       }
       
