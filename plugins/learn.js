@@ -106,7 +106,7 @@ let learn = function (par) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit?gid=708884080#gid=708884080`;
 
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
-    let arr = select(dados, multipatterncheck_exclude, par);
+    let arr = select("não_realizado " + dados, multipatterncheck_exclude, par);
 
     let code = `
 
@@ -143,7 +143,7 @@ let learn = function (par) {
       .timelineh {
         display: grid;
         grid-auto-columns: 100%;
-        grid-template-rows: 25px 25px calc(100dvh - 216px);
+        grid-template-rows: 25px 25px calc(100dvh - 266px);
         gap: 6px 10px;
         width: 100%;
       }
