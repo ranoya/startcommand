@@ -121,7 +121,7 @@ let learn = function (par) {
         width: calc(100% - 40px);
         margin-left: 20px;
         margin-right: 20px;
-        height: calc(100dvh - 256px);
+        height: calc(100vh - 166px);
         overflow-y: hidden;
       }
 
