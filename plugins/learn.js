@@ -106,7 +106,7 @@ let learn = function (par) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit?gid=708884080#gid=708884080`;
 
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
-    let arr = select("não_realizado " + dados, multipatterncheck_exclude, par);
+    let arr = select(dados, multipatterncheck_exclude, "não_realizado " + par);
 
     let code = `
 
