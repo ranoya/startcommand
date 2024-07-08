@@ -194,7 +194,7 @@ let learn = function (par) {
       .timelineh {
         display: grid;
         grid-auto-columns: 100%;
-        grid-template-rows:  calc(100dvh - 266px) 25px 25px;
+        grid-template-rows:  calc(100dvh - 266px) 25px 25px !important;
         width: 100%;
       }
 
