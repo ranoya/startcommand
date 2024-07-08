@@ -1,4 +1,59 @@
-let timelineh = function (arr, ano, titulo, conteudo, instance) {
+let timelinemoveto = function (who, where) {
+  document.querySelector(who).scrollTo({
+    left: where,
+    behavior: "smooth",
+  });
+
+  clearTimeout(tlmhandl);
+};
+
+let tlmhandl = "";
+let timelinemovehandler = function (who, arr) {
+  clearTimeout(tlmhandl);
+
+  let tlmdelta = document.querySelector(who).scrollLeft;
+
+  let tamanhoslideindividual = parseFloat(
+    document.querySelector(who + " .timelineh").scrollWidth / arr.length
+  );
+
+  let resto = parseFloat(tlmdelta % tamanhoslideindividual);
+
+  if (resto <= parseInt(tamanhoslideindividual / 2) && resto > 5) {
+    timelinemoveto(who, tlmdelta - resto);
+  }
+
+  if (
+    resto > tamanhoslideindividual - parseInt(tamanhoslideindividual / 2) &&
+    resto < tamanhoslideindividual - 5
+  ) {
+    timelinemoveto(who, tlmdelta + (tamanhoslideindividual - resto));
+  }
+
+  clearTimeout(tlmhandl);
+};
+
+let eventcontrolstart = true;
+let timelineactualarr = "";
+
+let snapToGrid = function (w) {
+  if (eventcontrolstart) {
+    eventcontrolstart = false;
+
+    document.querySelector(w).onscroll = function (e) {
+      // console.log("ativou");
+
+      clearTimeout(tlmhandl);
+      tlmhandl = setTimeout(function () {
+        timelinemovehandler(w, timelineactualarr);
+      }, 1000);
+    };
+  }
+};
+
+let timelineh = function (arr, ano, titulo, conteudo) {
+  timelineactualarr = arr;
+
   let instancename = "";
   if (typeof instance != "undefined" && instance != "" && instance != null) {
     instancename = instance;
@@ -7,7 +62,7 @@ let timelineh = function (arr, ano, titulo, conteudo, instance) {
   let html = "";
   let htmlfinal = "";
 
-  html = `<div class='timelineh'>`;
+  html = `<div style='gap: 0 0 !important; display: grid !important; grid-auto-columns: 100% !important; width: 100% !important; grid-template-rows: 40px 40px 400px;' class='timelineh'>`;
   htmlfinal = "";
 
   let qualano = "";
@@ -18,9 +73,9 @@ let timelineh = function (arr, ano, titulo, conteudo, instance) {
   let tituloatual = "";
   let quantostitulos = 1;
 
-  let htmlano = `<div class="timelineh_ano_head ${instancename}"><span class="timelineh_ano_head_cont ${instancename}">${ano}</span></div>`;
-  let htmltopico = `<div class="timelineh_topic_head ${instancename}"><span class="timelineh_topic_head_cont ${instancename}">${titulo}</span></div>`;
-  let htmlcont = `<div class="timelineh_cont_head ${instancename}"><span class="timelineh_cont_head_cont ${instancename}">${conteudo}</span></div>`;
+  let htmlano = "";
+  let htmltopico = "";
+  let htmlcont = "";
 
   let ultimo = "";
 
@@ -49,7 +104,7 @@ let timelineh = function (arr, ano, titulo, conteudo, instance) {
     }
 
     if (anoatual != qualano) {
-      htmlano += `<div class="timelineh_ano ${ultimo} ${instancename}" style="grid-column: span ${quantosblocos}"><span class="timelineh_ano_cont ${instancename}">${arr[k][ano]}</span></div>`;
+      htmlano += `<div class="timelineh_track1 ${ultimo}" style="grid-column: span ${quantosblocos}"><span class="timelineh_track1_cont">${arr[k][ano]}</span></div>`;
     }
 
     qualano = anoatual;
@@ -78,7 +133,7 @@ let timelineh = function (arr, ano, titulo, conteudo, instance) {
     }
 
     if (tituloatual != qualtitulo) {
-      htmltopico += `<div class="timelineh_topic ${ultimo} ${instancename}" style="grid-column: span ${quantostitulos}"><span class="timelineh_topic_cont ${instancename}">${arr[k][titulo]}</span></div>`;
+      htmltopico += `<div class="timelineh_track2 ${ultimo}" style="grid-column: span ${quantostitulos}"><span class="timelineh_track2_cont">${arr[k][titulo]}</span></div>`;
     }
 
     qualtitulo = tituloatual;
@@ -88,12 +143,8 @@ let timelineh = function (arr, ano, titulo, conteudo, instance) {
       ultimo = "ultimo";
     }
 
-    htmlcont += `<div class="timelineh_cont ${ultimo} ${instancename}"><span class="timelineh_cont_cont ${instancename}">${arr[k][conteudo]}</span></div>`;
+    htmlcont += `<div class="timelineh_track3 ${ultimo}"><span class="timelineh_track3_cont}">${arr[k][conteudo]}</span></div>`;
   }
-
-  htmlano += `<div class="timelineh_ano timelineh_ano_end ${instancename}"></div>`;
-  htmltopico += `<div class="timelineh_topic timelineh_topic_end ${instancename}"></div>`;
-  htmlcont += `<div class="timelineh_cont timelineh_cont_end ${instancename}"></div>`;
 
   html += htmlano + htmltopico + htmlcont + `</div>`;
 
@@ -144,63 +195,15 @@ let learn = function (par) {
         display: grid;
         grid-auto-columns: 100%;
         grid-template-rows:  calc(100dvh - 266px) 25px 25px;
-        gap: 6px 10px;
         width: 100%;
       }
 
-      .timelineh_ano_head {
-        font-size: 11px;
-        text-transform: uppercase;
-        background-color: var(--bg-color, #f8f9fa);
-        color: black;
-        font-size: 11px;
-        line-height: 25px;
-        grid-row: 3;
-        display: none;
-      }
-
-      .timelineh_topic_head {
-        background-color: var(--bg-color, #f8f9fa);
-        font-size: 11px;
-        line-height: 16px;
-        text-transform: uppercase;
-        grid-row: 2;
-        display: none;
-      }
-
-      .timelineh_cont_head {
-        font-size: 11px;
-        text-transform: uppercase;
-        background-color: white;
-        font-size: 11px;
-        line-height: 25px;
-        grid-row: 1;
-        display: none;
-      }
-
-      .timelineh_ano_head_cont {
-        padding-left: 15px;
-      }
-
-      .timelineh_topic_head_cont {
-        padding-left: 15px;
-        padding-top: 15px;
-        display: inline-block;
-      }
-
-      .timelineh_cont_head_cont {
-        padding-left: 15px;
-        padding-left: 15px;
-        padding-top: 15px;
-        display: inline-block;
-      }
-
-      .timelineh_ano {
+      .timelineh_track1 {
         grid-row: 3;
         align-content: center;
       }
 
-      .timelineh_ano_cont {
+      .timelineh_track1_cont {
         background-color: var(--bg-color, #f8f9fa);
         display: inline-block;
         position: sticky;
@@ -209,13 +212,13 @@ let learn = function (par) {
         font-size: 11px;
       }
 
-      .timelineh_topic {
+      .timelineh_track2 {
         background-color: var(--bg-color, #f8f9fa);
         grid-row: 2;
         align-content: center;
       }
 
-      .timelineh_topic_cont {
+      .timelineh_track2_cont {
         display: inline-block;
         position: sticky;
         left: 0px;
@@ -223,34 +226,20 @@ let learn = function (par) {
         font-size: 11px;
       }
 
-      .timelineh_cont {
+      .timelineh_track3 {
         grid-row: 1;
       }
 
-      .timelineh_cont_cont {
+      .timelineh_track3_cont {
         width: 100%;
         height: 100%;
       }
-
-      .timelineh_ano_end {
-        grid-row: 3;
-        display: none;
-      }
-
-      .timelineh_topic_end {
-        grid-row: 2;
-        display: none;
-      }
-
-      .timelineh_cont_end {
-        grid-row: 1;
-        display: none;
-      }
       
-      </style>
-    
+      </style>    
       `;
 
     present(code);
+
+    snapToGrid("#tabela");
   });
 };
