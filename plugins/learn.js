@@ -52,8 +52,6 @@ let snapToGrid = function (w) {
 };
 
 let timelineh = function (arr, ano, titulo, conteudo) {
-  timelineactualarr = arr;
-
   let instancename = "";
   if (typeof instance != "undefined" && instance != "" && instance != null) {
     instancename = instance;
@@ -157,12 +155,14 @@ let learn = function (par) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1K821gEs1HUvW4brTu_VRziZ6nr1wPvItNMQz5P3srtg/edit?gid=708884080#gid=708884080`;
 
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
-    let arr = select(dados, multipatterncheck_exclude, "não_realizado " + par);
+    let d = select(dados, multipatterncheck_exclude, "não_realizado " + par);
+
+    timelineactualarr = d;
 
     let code = `
 
       <div id="tabela">
-        ${timelineh(arr, "titulo", "topicos", "frame")}
+        ${timelineh(d, "titulo", "topicos", "frame")}
       </div>
 
       <style>
