@@ -158,6 +158,7 @@ let learn = function (par) {
     let d = select(dados, multipatterncheck_exclude, "não_realizado " + par);
 
     timelineactualarr = d;
+    eventcontrolstart = true;
 
     let code = `
 
