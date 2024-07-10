@@ -42,7 +42,7 @@ let ppgcomis = function (xpar) {
             .gradecomis {
                 display: grid;
                 gap: 16px 16px;
-                grid-template-columns: [init] 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [fim];
+                grid-template-columns: [init] 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr [fim];
                 font-size: 14px;
                 min-width: 1400px;
                 overflow-x: scroll;
@@ -114,7 +114,7 @@ let ppgcomis = function (xpar) {
     xpto += `
         <div class="outputgrid gradecomis">
         <div></div>
-        <div class='tablehead'>Coordenação</div><div class='tablehead'>Processo Seletivo</div><div class='tablehead'>Auto-Avaliação</div><div class='tablehead'>Credenciamento</div><div class='tablehead'>Editorial Fronteiras do Design</div><div class='tablehead'>Organização dos Seminários</div><div class='tablehead'>Coleta Capes</div><div class='tablehead'>Bolsas</div><div class='tablelinha'></div>`;
+        <div class='tablehead'>Coordenação</div><div class='tablehead'>Processo Seletivo</div><div class='tablehead'>Auto-Avaliação</div><div class='tablehead'>Gestão</div><div class='tablehead'>Credenciamento</div><div class='tablehead'>Editorial Fronteiras do Design</div><div class='tablehead'>Organização dos Seminários</div><div class='tablehead'>Coleta Capes</div><div class='tablehead'>Bolsas</div><div class='tablelinha'></div>`;
 
     for (let i = 0; i < newarr.length; i++) {
       xpto += `<div class='tabelanos'>${newarr[i].ano}</div>`;
@@ -124,6 +124,7 @@ let ppgcomis = function (xpar) {
       xpto += ppgmontalista(newarr[i], "Coordenação");
       xpto += ppgmontalista(newarr[i], "Seleção");
       xpto += ppgmontalista(newarr[i], "Auto Avaliação");
+      xpto += ppgmontalista(newarr[i], "Gestão");
       xpto += ppgmontalista(newarr[i], "Credenciamento");
       xpto += ppgmontalista(newarr[i], "Editorial Fronteiras");
       xpto += ppgmontalista(newarr[i], "Oranização Seminários");
