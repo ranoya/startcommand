@@ -21,7 +21,7 @@ let working = function (par) {
         servicos[s] != "" &&
         servicos[s] != null
       ) {
-        hed += `<a href='javascript:setinput("/working ${servicos[s]}")'>${servicos[s]}</a> &nbsp; | &nbsp; `;
+        hed += `<a class='grouplink' href='javascript:setinput("/working ${servicos[s]}")'>${servicos[s]}</a> &nbsp; | &nbsp; `;
       }
     }
     let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>${hed}</span><span class='categoria'>&nbsp;</span>`;
