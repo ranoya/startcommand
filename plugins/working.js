@@ -13,7 +13,18 @@ let working = function (par) {
   getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
     let dados = select(jsondata, multipatterncheck_exclude, par);
     let selectedarr = tags(dados, groupkey, ",");
-    let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>Trabalhos em andamento</span><span class='categoria'>&nbsp;</span>`;
+    let servicos = tags(dados, "Service", ",");
+    let hed = "Trabalhos em andamento | ";
+    for (let s = 0; s < servicos.length; s++) {
+      if (
+        typeof servicos[s] != "undefined" &&
+        servicos[s] != "" &&
+        servicos[s] != null
+      ) {
+        hed += `<a href='javascript:setinput("/working ${servicos[s]}")'>${servicos[s]}</a> |`;
+      }
+    }
+    let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>${hed}</span><span class='categoria'>&nbsp;</span>`;
     let arr = orderbytemplate(dados, selectedarr, groupkey, [
       namekey,
       groupkey,
