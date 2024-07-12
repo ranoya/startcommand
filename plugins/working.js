@@ -14,14 +14,14 @@ let working = function (par) {
     let dados = select(jsondata, multipatterncheck_exclude, par);
     let selectedarr = tags(dados, groupkey, ",");
     let servicos = tags(dados, "Service", ",");
-    let hed = "Trabalhos em andamento | ";
+    let hed = "Trabalhos em andamento &nbsp; | &nbsp; ";
     for (let s = 0; s < servicos.length; s++) {
       if (
         typeof servicos[s] != "undefined" &&
         servicos[s] != "" &&
         servicos[s] != null
       ) {
-        hed += `<a href='javascript:setinput("/working ${servicos[s]}")'>${servicos[s]}</a> |`;
+        hed += `<a href='javascript:setinput("/working ${servicos[s]}")'>${servicos[s]}</a> &nbsp; | &nbsp; `;
       }
     }
     let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>${hed}</span><span class='categoria'>&nbsp;</span>`;
