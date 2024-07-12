@@ -24,6 +24,9 @@ let working = function (par) {
         hed += `<a class='grouplink' href='javascript:setinput("/working ${servicos[s]}")'>${servicos[s]}</a> &nbsp; | &nbsp; `;
       }
     }
+
+    hed += `<a class='grouplink' href='javascript:setinput("/working ")'>/</a> &nbsp; `;
+
     let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>${hed}</span><span class='categoria'>&nbsp;</span>`;
     let arr = orderbytemplate(dados, selectedarr, groupkey, [
       namekey,
