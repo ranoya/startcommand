@@ -3,14 +3,38 @@
   "name": "POE",
   "icons": [
     {
-      "src": "./favicon.ico",
-      "sizes": "256x256 48x48 16x16",
-      "type": "image/x-icon",
-      "purpose": "any maskable"
+      "src": "./assets/Poe180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/Poe144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/Poe128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/Poe114.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/Poe72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/Poe60.png",
+      "sizes": "60x60",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "fullscreen",
-  "theme_color": "#fef6e4",
-  "background_color": "#fef6e4"
+  "theme_color": "#333333",
+  "background_color": "#333333"
 }
