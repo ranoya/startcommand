@@ -27,6 +27,14 @@ let working = function (par) {
 
     hed += `<a class='grouplink' href='javascript:setinput("/working ")'>/</a> &nbsp; `;
 
+    hed += `<br>Projetos &nbsp; | &nbsp; `;
+
+    let prj = tags(jsondata, "projetos", ",");
+
+    for (let p = 0; p < prj.length; p++) {
+      hed += `<a class='grouplink' href='javascript:setinput("/working ${prj[p]}")'>${prj[p]}</a> &nbsp; | &nbsp; `;
+    }
+
     let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>${hed}</span><span class='categoria'>&nbsp;</span>`;
     let arr = orderbytemplate(dados, selectedarr, groupkey, [
       namekey,
