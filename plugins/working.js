@@ -32,7 +32,9 @@ let working = function (par) {
     let prj = tags(jsondata, "projetos", ",");
 
     for (let p = 0; p < prj.length; p++) {
-      hed += `<a class='grouplink' href='javascript:setinput("/working ${prj[p]}")'>${prj[p]}</a> &nbsp; | &nbsp; `;
+      if (prj[p] != "") {
+        hed += `<a class='grouplink' href='javascript:setinput("/working ${prj[p]}")'>${prj[p]}</a> &nbsp; | &nbsp; `;
+      }
     }
 
     let code = `<div class="outputgrid"><span class='categoria noline' style='border: 0;'>${hed}</span><span class='categoria'>&nbsp;</span>`;
