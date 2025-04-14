@@ -35,20 +35,22 @@ let alunosppgd = function (par) {
       }
     }
 
+    let nalunos = select(alunos, multipatterncheck_exclude, par);
+
     let code = `<div class="outputgrid">`;
 
     for (let i = 0; i < alunos.length; i++) {
-      code += `<div>${alunos[i].nome}, ${alunos[i].nivel}</div>
-                     <div>${alunos[i].linha}</div>
-                     <div>${alunos[i].orientador}</div>
-                     <div>${alunos[i].orienttipo}</div>
+      code += `<div>${nalunos[i].nome}, ${nalunos[i].nivel}</div>
+                     <div>${nalunos[i].linha}</div>
+                     <div>${nalunos[i].orientador}</div>
+                     <div>${nalunos[i].orienttipo}</div>
                      
                <span class="separaline"></span>`;
     }
 
     code += `</div>`;
 
-    if (alunos.length == 0) {
+    if (nalunos.length == 0) {
       code = "";
     }
     present(code);
