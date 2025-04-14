@@ -38,7 +38,7 @@ let alunosppgd = function (par) {
     let code = `<div class="outputgrid">`;
 
     for (let i = 0; i < alunos.length; i++) {
-      code += `<div>${alunos[i].nome}, ${alunos[i].nivel}"</div>
+      code += `<div>${alunos[i].nome}, ${alunos[i].nivel}</div>
                      <div>${alunos[i].linha}</div>
                      <div>${alunos[i].orientador}</div>
                      <div>${alunos[i].orienttipo}</div>
