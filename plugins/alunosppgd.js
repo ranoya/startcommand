@@ -37,6 +37,8 @@ let alunosppgd = function (par) {
 
     let nalunos = select(alunos, multipatterncheck_exclude, par);
 
+    console.table(nalunos);
+
     let code = `<div class="outputgrid">`;
 
     for (let i = 0; i < alunos.length; i++) {
