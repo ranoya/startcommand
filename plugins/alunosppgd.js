@@ -44,7 +44,7 @@ let alunosppgd = function (par) {
 
     let code = `<div class="outputgrid">`;
 
-    code += `<div style='grid-column: 1 / fim;'>| Total de alunos ativos: <b>${c}</b> | Mestrado: <b>${m}</b> | Doutorado: <b>${d} |</b></div>`;
+    code += `<div style='grid-column: 1 / fim;'>| Total de alunos ativos: <b>${c}</b> | Mestrado: <b>${m}</b> | Doutorado: <b>${d} |</b></div><span class="separaline"></span>`;
 
     for (let i = 0; i < nalunos.length; i++) {
       code += `<div>${nalunos[i].nome}, ${nalunos[i].nivel}</div>
