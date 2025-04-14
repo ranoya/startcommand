@@ -10,6 +10,8 @@ let alunosppgd = function (par) {
     let jsondata = select(jsn, multipatterncheck_exclude, par);
     // separa todos os alunos
 
+    console.table(jsondata);
+
     let alunos = [];
     let c = 0;
     for (let i = 0; i < jsondata.length; i++) {
