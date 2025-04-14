@@ -10,11 +10,15 @@ let alunosppgd = function (par) {
     let jsondata = select(jsn, multipatterncheck_exclude, par);
     // separa todos os alunos
 
-    console.table(jsondata);
-
     let alunos = [];
     let c = 0;
     for (let i = 0; i < jsondata.length; i++) {
+      console.log(
+        jsondata[i].orientandos +
+          " " +
+          jsondata[i].orientandos.split(";").length
+      );
+
       let temparray = jsondata[i].orientandos.split(";");
 
       for (let j = 0; j < temparray.length; j++) {
@@ -36,6 +40,8 @@ let alunosppgd = function (par) {
         c++;
       }
     }
+
+    console.table(alunos);
 
     let code = `<div class="outputgrid">`;
 
