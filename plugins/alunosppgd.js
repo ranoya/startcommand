@@ -15,7 +15,7 @@ let alunosppgd = function (par) {
     let alunos = [];
     let c = 0;
     for (let i = 0; i < jsondata.length; i++) {
-      let temparray = jsondata[i].Nome.split(";");
+      let temparray = jsondata[i].orientandos.split(";");
 
       for (let j = 0; j < temparray.length; j++) {
         alunos[c] = {};
