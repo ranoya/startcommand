@@ -37,11 +37,9 @@ let alunosppgd = function (par) {
 
     let nalunos = select(alunos, multipatterncheck_exclude, par);
 
-    console.table(nalunos);
-
     let code = `<div class="outputgrid">`;
 
-    for (let i = 0; i < alunos.length; i++) {
+    for (let i = 0; i < nalunos.length; i++) {
       code += `<div>${nalunos[i].nome}, ${nalunos[i].nivel}</div>
                      <div>${nalunos[i].linha}</div>
                      <div>${nalunos[i].orientador}</div>
