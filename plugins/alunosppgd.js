@@ -12,6 +12,9 @@ let alunosppgd = function (par) {
 
     let alunos = [];
     let c = 0;
+    let m = 0;
+    let d = 0;
+
     for (let i = 0; i < jsondata.length; i++) {
       let temparray = jsondata[i].orientandos.split(";");
 
@@ -23,8 +26,10 @@ let alunosppgd = function (par) {
           temparray[j].match(/\(D\)/) != null
         ) {
           alunos[c].nivel = "Doutorado";
+          d++;
         } else {
           alunos[c].nivel = "Mestrado";
+          m++;
         }
 
         alunos[c].nome = temparray[j].replace(/\(.\)/, "").trim();
@@ -38,6 +43,8 @@ let alunosppgd = function (par) {
     let nalunos = select(alunos, multipatterncheck_exclude, par);
 
     let code = `<div class="outputgrid">`;
+
+    code += `<div style='grid-column: 1 / fim;'>| Total de alunos ativos: <b>${c}</b> | Mestrado: <b>${m}</b> | Doutorado: <b>${d} |</b></div>`;
 
     for (let i = 0; i < nalunos.length; i++) {
       code += `<div>${nalunos[i].nome}, ${nalunos[i].nivel}</div>
