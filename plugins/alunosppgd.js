@@ -13,12 +13,6 @@ let alunosppgd = function (par) {
     let alunos = [];
     let c = 0;
     for (let i = 0; i < jsondata.length; i++) {
-      console.log(
-        jsondata[i].orientandos +
-          " " +
-          jsondata[i].orientandos.split(";").length
-      );
-
       let temparray = jsondata[i].orientandos.split(";");
 
       for (let j = 0; j < temparray.length; j++) {
@@ -41,15 +35,15 @@ let alunosppgd = function (par) {
       }
     }
 
-    console.table(alunos);
-
     let code = `<div class="outputgrid">`;
 
     for (let i = 0; i < alunos.length; i++) {
-      code += `<div>${alunos[i].aluno}, ${alunos[i].nivel}"</div>
+      code += `<div>${alunos[i].nome}, ${alunos[i].nivel}"</div>
                      <div>${alunos[i].linha}</div>
                      <div>${alunos[i].orientador}</div>
-                     <div>${alunos[i].orienttipo}</div>`;
+                     <div>${alunos[i].orienttipo}</div>
+                     
+               <span class="separaline"></span>`;
     }
 
     code += `</div>`;
