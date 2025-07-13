@@ -25,9 +25,9 @@ let visseedit = function (par) {
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][groupkey] == selectedarr[c]) {
             if (arr[l][typekey] == "self") {
-              code += `<a target='_self' href='${arr[l][linkkey]}' class='linksrecursos'>${arr[l][namekey]}</a>`;
+              code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos'>${arr[l][namekey]}</a>`;
             } else if (arr[l][typekey] == "embed") {
-              code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>${arr[l][namekey]}</a>`;
+              code += `<a target='_blank' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>${arr[l][namekey]}</a>`;
             } else {
               code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos'>${arr[l][namekey]}</a>`;
             }
@@ -44,9 +44,9 @@ let visseedit = function (par) {
       for (let l = 0; l < arr.length; l++) {
         if (arr[l][linkkey] != ultimoregistro) {
           if (arr[l][typekey] == "self") {
-            code += `<a target='_self' href='${arr[l][linkkey]}' class='linksrecursos'>${arr[l][namekey]}</a>`;
+            code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos'>${arr[l][namekey]}</a>`;
           } else if (arr[l][typekey] == "embed") {
-            code += `<a target='_self' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>${arr[l][namekey]}</a>`;
+            code += `<a target='_blank' href='javascript:embed("${arr[l][linkkey]}")' class='linksrecursos'>${arr[l][namekey]}</a>`;
           } else {
             code += `<a target='_blank' href='${arr[l][linkkey]}' class='linksrecursos'>${arr[l][namekey]}</a>`;
           }
