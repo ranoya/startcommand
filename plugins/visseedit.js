@@ -1,9 +1,9 @@
-let visse = function (par) {
+let visseedit = function (par) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1Wu1v5jb8chg1Fi9chuT1QAPknJmVHF8Kz2cKvA6s2qw/edit?gid=1756045639#gid=1756045639`; // Change the URL here (imperative)
 
   let namekey = `Name`; // Change the Key for the Title of the links, if needed
   let groupkey = `Group`; // Change the Key for the Groups of the links, if needed
-  let linkkey = `Link`; // Change the Key for the link url of the links, if needed
+  let linkkey = `observabledoc`; // Change the Key for the link url of the links, if needed
   let typekey = `Type`; // Change the Key for the link type of the links, if needed
 
   // Don't mess with the rest, if you don't want trouble ;-)
