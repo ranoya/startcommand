@@ -1,4 +1,4 @@
-let mclipboardol = function (gurl) {
+let joganoclip = function (gurl) {
   navigator.clipboard.writeText(gurl);
 };
 
@@ -24,7 +24,7 @@ let xenon = function (par) {
         code += `<span class='categoria'><a href='javascript:addinput("${selectedarr[c]}");' class='grouplink'>${selectedarr[c]}</a></span>`;
         for (let l = 0; l < arr.length; l++) {
           if (arr[l][groupkey] == selectedarr[c]) {
-            code += `<a href='javascript:mclipboardol("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
+            code += `<a href='javascript:joganoclip("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
           }
         }
       }
@@ -37,7 +37,7 @@ let xenon = function (par) {
       code += `</span>`;
       for (let l = 0; l < arr.length; l++) {
         if (arr[l][linkkey] != ultimoregistro) {
-          code += `<a href='javascript:mclipboardol("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
+          code += `<a href='javascript:joganoclip("${arr[l][linkkey]}");'>${arr[l][namekey]}</a>`;
           ultimoregistro = arr[l][linkkey];
         }
       }
