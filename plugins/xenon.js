@@ -10,7 +10,7 @@ let xenon = function (par) {
   let jsonfile = `https://docs.google.com/spreadsheets/d/1Uy5dWDszjwuNJAGJZ55ANVCJA-ruHd8Ey_86cvHd28A/edit#gid=0`;
   let jsonfile2 = `https://docs.google.com/spreadsheets/d/1dZpKhn38u_M-m45DX5z9CKmeDcaLq4c-PpCZt7FaXpo/edit#gid=513250687`;
 
-  getcsvdata(GoogleSheetCsvURL(jsonfile), function (dados) {
+  getcsvdata(GoogleSheetCsvURL(jsonfile), function (jsondata) {
     let dados = select(jsondata, multipatterncheck_exclude, par);
     let selectedarr = tags(dados, groupkey, ",");
     let code = `<div class="outputgrid">`;
