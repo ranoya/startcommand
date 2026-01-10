@@ -42,7 +42,7 @@ let xenon = function (par) {
         }
       }
     }
-    code += `<div>`;
+
     if (arr.length == 0) {
       code = "";
     }
