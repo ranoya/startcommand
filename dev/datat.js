@@ -39,7 +39,7 @@ const present = function (code) {
 const embed = function (url) {
     clearInterval(voltaaoinput);
     document.getElementById("outputs").style.overflow = 'hidden';
-    let code = `<iframe frameborder=0 src='${url}'></iframe>`;
+    let code = `<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreeen frameborder=0 src='${url}'></iframe>`;
     present(code);
 }
 
